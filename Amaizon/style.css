@@ -80,4 +80,24 @@ body,
 /* CONTENT */
 #content {
   overflow: scroll;
+  padding: 16px 0px;
+}
+
+/* ARTICLE */
+.article {
+  margin: 16px 0px;
+}
+.article .center {
+  display: block;
+  width: 200px;
+  margin: auto;
+}
+.article .nom {
+  font-size: 20px;
+  margin-top: 8px;
+  color: #383838;
+}
+.article .prix {
+  font-size: 24px;
+  font-weight: 500;
 }
