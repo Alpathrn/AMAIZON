@@ -5,10 +5,14 @@
     <ul>
         <li class="menu-li">Catégories
             <ul>
-                <li><a href="">Livres</a></li>
-                <li><a href="">Musique</a></li>
-                <li><a href="">Vêtements</a></li>
-                <li><a href="">Sports & Loisirs</a></li>
+                <?php
+                $req = $bdd->query('SELECT * FROM categories');
+                while ($tmp = $req->fetch()) {
+                    ?>
+                    <li><a href="#category?id=<?php echo $tmp['id'] ?>"><?php echo $tmp['nom'] ?></a></li>
+                <?php
+            }
+            ?>
             </ul>
         </li>
         <li class="menu-li">Ventes Flash

@@ -18,7 +18,7 @@ include('head.php');
 	?>
 	<div id="content" class="container">
 		<h1>Bienvenue sur Amaizon ! <span style="font-size: 14px;">Faites comme à la maison</span></h1>
-		<div class="row">
+		<div class="row no-gutters">
 			<?php
 			$req = $bdd->query('SELECT * FROM articles');
 			while ($tmp = $req->fetch()) {
