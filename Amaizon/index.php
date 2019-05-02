@@ -18,9 +18,10 @@ include('head.php');
 	?>
 	<div id="content" class="container">
 		<h1>Bienvenue sur Amaizon ! <span style="font-size: 14px;">Faites comme à la maison</span></h1>
-		<div class="row no-gutters">
+		<h2>Derniers articles ajoutés</h2>
+		<div class="row">
 			<?php
-			$req = $bdd->query('SELECT * FROM articles');
+			$req = $bdd->query('SELECT * FROM articles ORDER BY id DESC');
 			while ($tmp = $req->fetch()) {
 				include('article.php');
 			}
