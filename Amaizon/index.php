@@ -7,7 +7,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=amaizon;charset=utf8', 'root', 'root
 
 $page = (object)[
 	'title' => 'Amaizon - Home',
-	'selected' => 'home'
+	'page' => 'index'
 ];
 include('head.php');
 ?>

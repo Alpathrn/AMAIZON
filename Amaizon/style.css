@@ -50,8 +50,31 @@ body,
   left: 0;
   right: 0;
 }
+#utilisateur {
+  padding: 0px 16px;
+  margin-bottom: 8px;
+}
+#utilisateur .center {
+  display: flex;
+  align-items: center;
+}
+#utilisateur img {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+#utilisateur span {
+  display: block;
+  line-height: 14px;
+  font-size: 12px;
+  max-width: 160px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 .bottom-link {
-  text-align: center;
+  text-align: left;
+  padding-left: 54px;
   display: block;
   color: black;
 }
@@ -84,6 +107,13 @@ body,
 }
 
 /* ARTICLE */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
 .center {
   display: block;
   margin: auto;
@@ -124,4 +154,16 @@ body,
   font-size: 24px;
   font-weight: 500;
   color: black;
+}
+
+/* CONNEXION */
+#connexion {
+  text-align: center;
+}
+#connexion input {
+  width: 400px;
+  margin-bottom: 8px;
+}
+#connexion .btn {
+  background-color: #f5f6fa;
 }
