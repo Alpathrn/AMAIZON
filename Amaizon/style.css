@@ -167,3 +167,23 @@ body,
 #connexion .btn {
   background-color: #f5f6fa;
 }
+#connexion span {
+  color: gray;
+  font-size: 12px;
+}
+
+/* INSCRIPTION */
+#inscription {
+  text-align: center;
+}
+#inscription input {
+  width: 400px;
+  margin-bottom: 8px;
+}
+#inscription .btn {
+  background-color: #f5f6fa;
+}
+#inscription span {
+  color: gray;
+  font-size: 12px;
+}

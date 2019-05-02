@@ -22,11 +22,11 @@ include('head.php');
                 <h1>Connexion</h1>
                 <form method="post" action="forms/connexion.php">
                     <?php if ($_GET['erreur'] == 1) { ?><p class="erreur">Incorrect, Réessayez.</p> <?php } ?>
-                    <!-- Si erreur dans les entrées (mdp invalide ou champ non renseigné) -->
                     <input class="form-control" type="text" name="username" placeholder="Email" autofocus />
                     <input class="form-control" type="password" name="password" placeholder="Mot de passe" />
                     <input type="hidden" name="redirection" value="<?php echo $_GET['redirection'] ?>" />
-                    <input class="btn" type="submit" value="Me connecter" />
+                    <input class="btn" type="submit" value="Me connecter" /><br />
+                    <span>Vous n'avez pas de compte? <a href="inscription.php?redirection=<?php echo $_GET['redirection'] ?>">Inscrivez vous</a></span>
                 </form>
             </div>
         </div>

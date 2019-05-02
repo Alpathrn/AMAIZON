@@ -5,7 +5,6 @@ $req = $bdd->query('SELECT * FROM utilisateurs');
 $success = false;
 
 while ($tmp = $req->fetch()) {
-
     if ($_POST['username'] == $tmp['mail'] and $_POST['password'] == $tmp['mdp']) {
         $success = true;
         $_SESSION['utilisateur'] = $tmp;

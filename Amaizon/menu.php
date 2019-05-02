@@ -1,5 +1,10 @@
 <?php
 session_start();
+if ($_GET['redirection']) {
+    $redirection = $_GET['redirection'];
+} else {
+    $redirection = str_replace('/Amaizon/', '', $_SERVER['REQUEST_URI']);
+}
 ?>
 
 <div id="menu">
@@ -33,7 +38,8 @@ session_start();
     </ul>
     <div id="menu-bottom">
         <?php if (!$_SESSION['utilisateur']) { ?>
-            <a class="bottom-link" href="connexion.php?redirection=<?php echo str_replace('/Amaizon/', '', $_SERVER['REQUEST_URI']) ?>">Me connecter</a>
+            <a class="bottom-link" href="connexion.php?redirection=<?php echo $redirection ?>">Me connecter</a>
+            <a class="bottom-link" href="inscription.php?redirection=<?php echo $redirection ?>">M'inscrire</a>
         <?php } else { ?>
             <div id="utilisateur">
                 <div class="center">
@@ -46,7 +52,7 @@ session_start();
             </div>
             <a class="bottom-link" href="">Mon compte</a>
             <a class="bottom-link" href="">Espace Admin</a>
-            <a class="bottom-link" href="actions/deconnexion.php?redirection=<?php echo str_replace('/Amaizon/', '', $_SERVER['REQUEST_URI']) ?>">
+            <a class="bottom-link" href="actions/deconnexion.php?redirection=<?php echo $redirection ?>">
                 Me déconnecter
             </a>
         <?php } ?>
