@@ -30,9 +30,9 @@ include('head.php');
                     <textarea class="form-control" name="adresse" rows="3" placeholder="Adresse" required></textarea>
                     <br />
                     <select class="form-control" name="type" style="margin:8px 0px;" required>
-                        <option value="1">Acheteur</option>
-                        <option value="2">Vendeur</option>
-                        <option value="3">Les deux</option>
+                        <option value="acheteur">Acheteur</option>
+                        <option value="vendeur">Vendeur</option>
+                        <option value="deux">Les deux</option>
                     </select>
                     <input class="form-control" type="text" name="nomcarte" placeholder="Nom sur la carte" required />
                     <input class="form-control" type="text" name="numcarte" placeholder="Numéro de carte bancaire" pattern=".{16}" required title="16 caractères requis." />

@@ -24,7 +24,7 @@ if (!$erreur) {
         (:prenom, :nom, :mail, :mdp, :adresse, :telephone, :type, :nomcarte, :numcarte, :expiration, :cvv, 0)'
     )->execute($_POST);
 
-    $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE mail = ?'); //On récupère le nouvel ID utilisateur
+    $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE mail = ?');
     $req->execute(array($_POST['mail']));
     $tmp = $req->fetch();
     $_SESSION['utilisateur'] = $tmp;

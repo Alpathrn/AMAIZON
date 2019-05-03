@@ -104,6 +104,7 @@ body,
 #content {
   overflow: scroll;
   padding: 16px 32px;
+  position: relative;
 }
 
 /* ARTICLE */
@@ -186,4 +187,71 @@ body,
 #inscription span {
   color: gray;
   font-size: 12px;
+}
+
+/* ESPACE VENTE */
+#photocouverture {
+  position: absolute;
+  z-index: -1;
+  height: 250px;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background-color: #8f9096;
+}
+#photocouverture img,
+#couverturebandeau img {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+}
+#photocouverture img {
+  width: 100%;
+  filter: brightness(50%);
+}
+#couverturebandeau {
+  height: 300px;
+}
+#couverturebandeau span {
+  color: white;
+}
+#profil {
+  margin-top: 90px;
+  display: flex;
+  width: 100%;
+}
+#profil-img {
+  position: relative;
+  background-color: #8f9096;
+  overflow: hidden;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  margin-right: 20px;
+}
+#couverturebandeau img {
+  width: 100px;
+}
+#ajout a {
+  background-color: #f5f6fa;
+}
+.stock {
+  display: flex;
+  width: 800px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  border-left: 2px solid black;
+  padding-left: 16px;
+}
+.stock-nom {
+  width: 400px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }

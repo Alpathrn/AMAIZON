@@ -27,11 +27,13 @@ if ($_GET['redirection']) {
                 <li><a href="">Promotions</a></li>
             </ul>
         </li>
-        <li class="menu-li">Vendre
-            <ul>
-                <li><a href="">Espace de vente</a></li>
-            </ul>
-        </li>
+        <?php if ($_SESSION['utilisateur']['type'] == 'deux' or $_SESSION['utilisateur']['type'] == 'vendeur') { ?>
+            <li class="menu-li">Vendre
+                <ul>
+                    <li><a href="espacevente.php">Espace de vente</a></li>
+                </ul>
+            </li>
+        <?php } ?>
     </ul>
     <div id="menu-bottom">
         <?php if (!$_SESSION['utilisateur']) { ?>
@@ -49,7 +51,7 @@ if ($_GET['redirection']) {
             </div>
             <a class="bottom-link" href="">Mon compte</a>
             <a class="bottom-link" href="">Espace Admin</a>
-            <a class="bottom-link" href="actions/deconnexion.php?redirection=<?php echo $redirection ?>">
+            <a class="bottom-link" href="actions/deconnexion.php">
                 Me déconnecter
             </a>
         <?php } ?>
