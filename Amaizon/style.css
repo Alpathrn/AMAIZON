@@ -123,17 +123,15 @@ body,
   margin: 16px 0px;
   text-decoration: none;
 }
-.article {
-  margin: 16px 0px;
-  text-decoration: none;
-}
-.article .center {
+.article a {
+  display: block;
+  margin: auto;
   width: 250px;
   border: 1px solid lightgrey;
   border-radius: 4px;
   overflow: hidden;
 }
-.article .center:hover {
+.article a:hover {
   text-decoration: none;
   box-shadow: 2px 2px 14px 8px #f5f6fa;
   transition: box-shadow 0.2s ease;
@@ -157,36 +155,36 @@ body,
   color: black;
 }
 
-/* CONNEXION */
-#connexion {
+/* FORMULAIRE */
+.formulaire {
   text-align: center;
 }
-#connexion input {
+.formulaire input,
+.formulaire textarea,
+.formulaire select {
   width: 400px;
   margin-bottom: 8px;
 }
-#connexion .btn {
+.formulaire .btn {
   background-color: #f5f6fa;
 }
-#connexion span {
+.formulaire span {
   color: gray;
   font-size: 12px;
 }
-
-/* INSCRIPTION */
-#inscription {
-  text-align: center;
-}
-#inscription input {
+.formulaire .file-input {
+  display: flex;
+  justify-content: space-between;
   width: 400px;
-  margin-bottom: 8px;
+  margin: 16px 0px;
 }
-#inscription .btn {
-  background-color: #f5f6fa;
+.formulaire input[type="file"] {
+  font-size: 14px;
 }
-#inscription span {
-  color: gray;
-  font-size: 12px;
+.formulaire .bouton-upload {
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* ESPACE VENTE */
@@ -218,6 +216,16 @@ body,
 }
 #couverturebandeau span {
   color: white;
+}
+#couverturebandeau input[type="file"] {
+  font-size: 12px;
+}
+#couverturebandeau input[type="submit"] {
+  padding: 0px 8px;
+  border-radius: 4px;
+}
+#couverturebandeau input[type="submit"]:hover {
+  color: gray;
 }
 #profil {
   margin-top: 90px;

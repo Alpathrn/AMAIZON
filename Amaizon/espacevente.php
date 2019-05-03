@@ -32,12 +32,12 @@ include('head.php');
                 <div style="width: 90%; padding-top: 20px;">
                     <span style="font-size: 18px;"><?php echo ucfirst($_SESSION['utilisateur']['prenom']) . ' ' . strtoupper($_SESSION['utilisateur']['nom']) ?></span>
                     <form style="margin-top: 10px;" method="post" action="forms/uploadphoto.php?type=profil" enctype="multipart/form-data">
-                        <input type="file" name="photo" />
-                        <input type="submit" value="Modifier photo de profil" />
+                        <input type="file" name="photo" required />
+                        <input class="btn" type="submit" value="Modifier photo de profil" />
                     </form>
                     <form method="post" action="forms/uploadphoto.php?type=couverture" enctype="multipart/form-data">
-                        <input type="file" name="photo" />
-                        <input type="submit" value="Modifier photo de couverture" />
+                        <input type="file" name="photo" required />
+                        <input class="btn" type="submit" value="Modifier photo de couverture" />
                     </form>
                 </div>
             </div>
@@ -47,6 +47,7 @@ include('head.php');
             <div class="center-container" style="height: 150px;">
                 <div id="ajout" class="center">
                     <a class="btn" href="ajoutarticle.php">+ Ajouter un article</a>
+                    <a class="btn" href="ajoutstock.php">+ Ajouter un stock</a>
                 </div>
             </div>
             <div id="stocks">

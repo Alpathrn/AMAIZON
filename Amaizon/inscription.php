@@ -18,7 +18,7 @@ include('head.php');
     ?>
     <div id="content" class="container">
         <div class="center-container">
-            <div class="center" id="inscription">
+            <div class="center formulaire">
                 <h1>Inscription</h1>
                 <form method="post" action="forms/inscription.php">
                     <?php if ($_GET['erreur'] == 'mail') { ?><p class="erreur">Ce mail est déjà utilisé.</p> <?php } ?>
@@ -29,7 +29,7 @@ include('head.php');
                     <input class="form-control" type="text" name="telephone" placeholder="Telephone (ex: +33650246789)" required />
                     <textarea class="form-control" name="adresse" rows="3" placeholder="Adresse" required></textarea>
                     <br />
-                    <select class="form-control" name="type" style="margin:8px 0px;" required>
+                    <select class="form-control" name="type" required>
                         <option value="acheteur">Acheteur</option>
                         <option value="vendeur">Vendeur</option>
                         <option value="deux">Les deux</option>

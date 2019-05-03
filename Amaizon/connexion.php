@@ -18,7 +18,7 @@ include('head.php');
     ?>
     <div id="content" class="container">
         <div class="center-container">
-            <div class="center" id="connexion">
+            <div class="center formulaire">
                 <h1>Connexion</h1>
                 <form method="post" action="forms/connexion.php">
                     <?php if ($_GET['erreur'] == 1) { ?><p class="erreur">Incorrect, Réessayez.</p> <?php } ?>
