@@ -16,12 +16,9 @@ if ($_GET['redirection']) {
             <ul>
                 <?php
                 $req = $bdd->query('SELECT * FROM categories');
-                while ($tmp = $req->fetch()) {
-                    ?>
-                    <li><a href="#category?id=<?php echo $tmp['id'] ?>"><?php echo $tmp['nom'] ?></a></li>
-                <?php
-            }
-            ?>
+                while ($tmp = $req->fetch()) { ?>
+                    <li><a href="categorie.php?id=<?php echo $tmp['id'] ?>"><?php echo $tmp['nom'] ?></a></li>
+                <?php } ?>
             </ul>
         </li>
         <li class="menu-li">Ventes Flash

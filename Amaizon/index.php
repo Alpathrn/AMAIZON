@@ -23,7 +23,7 @@ include('head.php');
 			<?php
 			$req = $bdd->query('SELECT * FROM articles ORDER BY id DESC');
 			while ($tmp = $req->fetch()) {
-				include('article.php');
+				include('article_bloc.php');
 			}
 			?>
 		</div>
