@@ -57,7 +57,7 @@ if ($_GET['redirection']) {
         <?php } ?>
         <a id="cart-button" href="">
             <img alt="panier" src="images/panier.png" width="20px" style="margin-top: -4px;" />
-            PANIER
+            PANIER <?php if (count($_SESSION['panier'])) echo '(' . count($_SESSION['panier']) . ')' ?>
         </a>
     </div>
 </div>

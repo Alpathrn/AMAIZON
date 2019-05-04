@@ -184,6 +184,11 @@ body,
 #article-page .btn:hover {
   background-color: #fcad47;
 }
+#article-page .alert {
+  text-align: center;
+  margin-top: 8px;
+  opacity: 0.5;
+}
 
 /* FORMULAIRE */
 .formulaire {
