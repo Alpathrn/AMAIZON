@@ -5,6 +5,7 @@
         </div>
         <div class="info">
             <div class="nom"><?php echo ($tmp['nom']) ?></div>
+            <div class="custom"><?php echo $custom ?></div>
             <div class="prix"><?php echo ($tmp['prix']) ?>€</div>
         </div>
     </a>

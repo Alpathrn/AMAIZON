@@ -23,7 +23,7 @@ if ($_GET['redirection']) {
         </li>
         <li class="menu-li">Ventes Flash
             <ul>
-                <li><a href="">Meilleures Ventes</a></li>
+                <li><a href="top_ventes.php">Meilleures Ventes</a></li>
                 <li><a href="">Promotions</a></li>
             </ul>
         </li>

@@ -149,6 +149,10 @@ body,
   font-size: 20px;
   color: #383838;
 }
+.article .custom {
+  font-size: 12px;
+  color: grey;
+}
 .article .prix {
   font-size: 24px;
   font-weight: 500;
