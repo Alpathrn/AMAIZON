@@ -55,7 +55,7 @@ if ($_GET['redirection']) {
                 Me déconnecter
             </a>
         <?php } ?>
-        <a id="cart-button" href="">
+        <a id="cart-button" href="panier.php">
             <img alt="panier" src="images/panier.png" width="20px" style="margin-top: -4px;" />
             PANIER <?php if (count($_SESSION['panier'])) echo '(' . count($_SESSION['panier']) . ')' ?>
         </a>

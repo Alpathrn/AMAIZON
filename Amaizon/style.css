@@ -299,9 +299,9 @@ body,
   overflow: hidden;
 }
 
-/* PANIER */
-#panier {
-  margin-top: 20px;
+/* LISTE */
+#liste {
+  margin-top: 30px;
 }
 .stock-img-container {
   display: flex;
@@ -316,19 +316,19 @@ body,
   max-width: 100%;
   max-height: 100%;
 }
-#panier .row {
+#liste .row {
   margin-bottom: 8px;
   align-items: center;
   text-align: center;
 }
-#panier .row a {
+#liste .row a {
   padding: 8px 16px;
   color: black;
   text-decoration: none;
   font-size: 20px;
   font-weight: 500;
 }
-#panier .row .prix {
+#liste .row .prix {
   font-size: 20px;
   font-weight: 500;
 }
@@ -336,6 +336,7 @@ body,
   font-size: 18px;
   font-weight: 500;
 }
+
 #prix-total {
   color: #febd69;
   font-size: 32px;
@@ -350,6 +351,7 @@ body,
   color: white;
   font-weight: bold;
   border-radius: 4px;
+  border: none;
 }
 #commander:hover {
   text-decoration: none;

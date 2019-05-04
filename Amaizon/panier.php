@@ -20,7 +20,7 @@ include('head.php');
     <div id="content" class="container">
         <h1>Bienvenue sur Amaizon ! <span style="font-size: 14px;">Faites comme à la maison</span></h1>
         <h2>Panier</h2>
-        <div id="panier">
+        <div id="liste">
             <?php
             $total = 0;
             foreach ($_SESSION['panier'] as $key => $value) {
@@ -39,19 +39,30 @@ include('head.php');
                         <?php echo $article['prix'] * $value['quantite'] ?> €
                     </div>
                     <div class="col-sm-2 row">
-                        <div style="width:50px;"><a href="">-</a></div>
+                        <div style="width:50px;"><a href="actions/changerpanier.php?type=diminuer&id=<?php echo $key ?>">-</a></div>
                         <div style="width:50px;"><?php echo $value['quantite'] ?></div>
-                        <div style="width:50px;"><a href="">+</a></div>
+                        <div style="width:50px;"><a href="actions/changerpanier.php?type=augmenter&id=<?php echo $key ?>">+</a></div>
                     </div>
 
                     <div class="col-sm-1">
-                        <a href=""><img alt="supprimer" src="images/supprimer.png" width="20px" height="20px" /></a>
+                        <a href="actions/changerpanier.php?type=supprimer&id=<?php echo $key ?>">
+                            <img alt="supprimer" src="images/supprimer.png" width="20px" height="20px" />
+                        </a>
                     </div>
                 </div>
             <?php } ?>
             <div style="text-align: right; padding-right: 32px; margin-top: 40px;">
-                <div id="prix-total"><?php echo $total ?> € </div><br />
-                <a id="commander" href="">Commander</a>
+                <span style="margin-right: 16px;">Total :</span>
+                <span id="prix-total"><?php echo $total ?> € </span>
+                <br /><br />
+                <?php
+                if ($_SESSION['utilisateur']) {
+                    $lien_commander = "commander.php";
+                } else {
+                    $lien_commander = "connexion.php?redirection=commander.php";
+                }
+                ?>
+                <a id="commander" href="<?php echo $lien_commander ?>">Commander</a>
             </div>
         </div>
     </div>

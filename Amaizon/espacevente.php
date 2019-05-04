@@ -57,12 +57,18 @@ include('head.php');
                     $reqstock = $bdd->query('SELECT * FROM stocks WHERE article_id = ' . $tmp['id']);
                     while ($tmpstock = $reqstock->fetch()) { ?>
                         <div class="stock">
-                            <div class="stock-nom">
+                            <div class="stock-nom" <?php if ($tmpstock['stock'] <= 0) { ?>style="text-decoration: line-through;" <?php } ?>>
                                 <span style="font-size: 18px; font-weight: 500;"><?php echo $tmp['nom'] ?></span>
                                 / <span><?php echo $tmpstock['taille'] ?></span>
                                 / <span><?php echo $tmpstock['couleur'] ?></span>
                             </div>
-                            <div><a class="btn" href="actions/changerstock.php?type=diminuer&id=<?php echo $tmpstock['id'] ?>">-</a></div>
+                            <?php
+                            $lien = "";
+                            if ($tmpstock['stock'] > 0) {
+                                $lien = 'actions/changerstock.php?type=diminuer&id=' . $tmpstock['id'];
+                            }
+                            ?>
+                            <div><a class="btn" href="<?php echo $lien ?>">-</a></div>
                             <div><?php echo $tmpstock['stock'] ?></div>
                             <div><a class="btn" href="actions/changerstock.php?type=augmenter&id=<?php echo $tmpstock['id'] ?>">+</a></div>
                             <a href="actions/supprimerstock.php?id=<?php echo $tmpstock['id'] ?>"><img alt="supprimer" src="images/supprimer.png" width="20px" height="20px" /></a>

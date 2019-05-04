@@ -28,11 +28,18 @@ include('head.php');
             <div class="col-lg-7 center-container" style="margin-top: 10px;">
                 <form class="center" style="max-width: 600px;" method="post" action="forms/ajoutpanier.php">
                     <h2><?php echo $article['nom'] ?></h2>
-                    <h3><?php echo $article['prix'] ?> €</h3>
+                    <?php
+                    $req = $bdd->query('SELECT * FROM stocks WHERE article_id = ' . $_GET['id']);
+                    $stock_total = 0;
+                    while ($tmp = $req->fetch()) {
+                        $stock_total += $tmp['stock'];
+                    } ?>
+                    <h3 <?php if ($stock_total == 0) { ?>style="text-decoration: line-through;" <?php } ?>><?php echo $article['prix'] ?> €</h3>
                     <div class="label">Description :</div>
                     <p style="width:400px;"><?php echo $article['description'] ?></p>
                     <div class="label">Modèle :</div>
                     <select class="form-control" name="stock_id" required>
+                        <?php if ($stock_total == 0) { ?><option disabled selected>Plus de stock</option><?php } ?>
                         <?php
                         $req = $bdd->query('SELECT * FROM stocks WHERE article_id = ' . $_GET['id']);
                         while ($tmp = $req->fetch()) { ?>
@@ -42,7 +49,7 @@ include('head.php');
                     <div class="label">Quantité :</div>
                     <input class="form-control" type="number" name="quantite" value="1" required />
                     <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>" />
-                    <input class="btn" type="submit" value="Ajouter au panier" />
+                    <input class="btn" type="submit" value="Ajouter au panier" <?php if ($stock_total == 0) { ?>disabled<?php } ?> />
                     <?php if ($_GET['succes']) { ?> <div class="alert alert-success">Ajouté au panier !</div> <?php } ?>
                     <?php if ($_GET['erreur']) { ?> <div class="alert alert-danger">Pas assez de stock...</div> <?php } ?>
                 </form>
