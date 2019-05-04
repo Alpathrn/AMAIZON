@@ -49,7 +49,7 @@ if ($_GET['redirection']) {
                     </div>
                 </div>
             </div>
-            <a class="bottom-link" href="">Mon compte</a>
+            <a class="bottom-link" href="moncompte.php">Mon compte</a>
             <a class="bottom-link" href="">Espace Admin</a>
             <a class="bottom-link" href="actions/deconnexion.php">
                 Me déconnecter

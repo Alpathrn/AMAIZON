@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 01, 2019 at 09:03 PM
+-- Generation Time: May 03, 2019 at 01:29 AM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -65,6 +65,34 @@ INSERT INTO `categories` (`id`, `nom`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `commandes`
+--
+
+CREATE TABLE `commandes` (
+  `id` int(11) NOT NULL,
+  `utilisateur_id` int(11) NOT NULL,
+  `prenom` varchar(40) NOT NULL,
+  `nom` varchar(40) NOT NULL,
+  `adresse` text NOT NULL,
+  `telephone` varchar(20) NOT NULL,
+  `date` int(11) DEFAULT NULL,
+  `prix_total` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `commandes`
+--
+
+INSERT INTO `commandes` (`id`, `utilisateur_id`, `prenom`, `nom`, `adresse`, `telephone`, `date`, `prix_total`) VALUES
+(1, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556828254, 1306),
+(2, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556828254, 160),
+(3, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556828459, 15),
+(4, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556830923, 1918),
+(5, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556831587, 50);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `stocks`
 --
 
@@ -82,13 +110,12 @@ CREATE TABLE `stocks` (
 
 INSERT INTO `stocks` (`id`, `article_id`, `taille`, `couleur`, `stock`) VALUES
 (1, 1, '38', 'Grises/Bleues', 30),
-(3, 3, 'M', 'Noir', 126),
-(4, 3, 'M', 'Bleu', 80),
+(3, 3, 'M', 'Noir', 1),
+(4, 3, 'M', 'Bleu', 84),
 (5, 2, '128GB', '', 3),
 (6, 2, '256GB', '', 9),
-(8, 7, 'Standard', 'Noir', 5),
-(9, 7, 'XL', 'Blanc', 0),
-(10, 8, 'A4', 'Normal', 104),
+(8, 7, 'Standard', 'Noir', 2),
+(10, 8, 'A4', 'Normal', 101),
 (11, 1, '42', 'Noires', 6);
 
 -- --------------------------------------------------------
@@ -119,7 +146,35 @@ CREATE TABLE `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`ID`, `nom`, `prenom`, `mail`, `mdp`, `adresse`, `telephone`, `type`, `numcarte`, `nomcarte`, `expiration`, `cvv`, `admin`) VALUES
 (1, 'Sorcelle', 'Leonie', 'leonie.sorcelle@edu.ece.fr', 'bravo', 'rue du jardin', '0601120033', 'deux', '9887762', 'sorcelle', '2020-09-01', '98', 1),
-(7, 'Thirouin', 'Alpaïde', 'thirouinalpaide@gmail.com', 'tilikum', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 'deux', '0987654312123456', 'Alpa', '2020-02', '456', 1);
+(7, 'Thirouin', 'Alpaïde', 'thirouinalpaide@gmail.com', 'doudou', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 'deux', '1234567890098765', 'Alpa', '2020-02', '123', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ventes`
+--
+
+CREATE TABLE `ventes` (
+  `article_id` int(11) NOT NULL,
+  `stock_id` int(11) NOT NULL,
+  `commande_id` int(11) NOT NULL,
+  `utilisateur_id` int(11) NOT NULL,
+  `quantite` int(11) NOT NULL,
+  `prix` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ventes`
+--
+
+INSERT INTO `ventes` (`article_id`, `stock_id`, `commande_id`, `utilisateur_id`, `quantite`, `prix`) VALUES
+(7, 8, 1, 7, 1, 347),
+(2, 5, 1, 7, 1, 959),
+(3, 4, 2, 7, 2, 50),
+(1, 1, 2, 7, 1, 110),
+(8, 10, 3, 7, 1, 15),
+(2, 5, 4, 7, 2, 1918),
+(3, 3, 5, 7, 2, 50);
 
 --
 -- Indexes for dumped tables
@@ -139,6 +194,13 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `commandes`
+--
+ALTER TABLE `commandes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `utilisateur` (`utilisateur_id`);
+
+--
 -- Indexes for table `stocks`
 --
 ALTER TABLE `stocks`
@@ -150,6 +212,15 @@ ALTER TABLE `stocks`
 --
 ALTER TABLE `utilisateurs`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `ventes`
+--
+ALTER TABLE `ventes`
+  ADD KEY `article_commande` (`article_id`),
+  ADD KEY `stock_commande` (`stock_id`),
+  ADD KEY `commande` (`commande_id`),
+  ADD KEY `utilisateur_commande` (`utilisateur_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -168,6 +239,12 @@ ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `commandes`
+--
+ALTER TABLE `commandes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
@@ -177,7 +254,7 @@ ALTER TABLE `stocks`
 -- AUTO_INCREMENT for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -187,10 +264,25 @@ ALTER TABLE `utilisateurs`
 -- Constraints for table `articles`
 --
 ALTER TABLE `articles`
-  ADD CONSTRAINT `categorie` FOREIGN KEY (`categorie`) REFERENCES `categories` (`id`);
+  ADD CONSTRAINT `categorie` FOREIGN KEY (`categorie`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `commandes`
+--
+ALTER TABLE `commandes`
+  ADD CONSTRAINT `utilisateur` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `stocks`
 --
 ALTER TABLE `stocks`
-  ADD CONSTRAINT `article` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `article` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `ventes`
+--
+ALTER TABLE `ventes`
+  ADD CONSTRAINT `article_commande` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `commande` FOREIGN KEY (`commande_id`) REFERENCES `commandes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `stock_commande` FOREIGN KEY (`stock_id`) REFERENCES `stocks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `utilisateur_commande` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
