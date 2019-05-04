@@ -1,5 +1,5 @@
 <div class="col-lg-3 article">
-    <a href="">
+    <a href="article.php?id=<?php echo ($tmp['id']) ?>">
         <div class="center-container" style="height:250px;">
             <img alt="" src="<?php echo (chemin_photo('images/articles/', $tmp['id'])) ?>" />
         </div>
