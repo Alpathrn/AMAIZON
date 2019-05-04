@@ -33,49 +33,56 @@ include('head.php');
                     <span style="font-size: 18px;"><?php echo ucfirst($_SESSION['utilisateur']['prenom']) . ' ' . strtoupper($_SESSION['utilisateur']['nom']) ?></span>
                     <form style="margin-top: 10px;" method="post" action="forms/uploadphoto.php?type=profil" enctype="multipart/form-data">
                         <input type="file" name="photo" required />
-                        <input class="btn" type="submit" value="Modifier photo de profil" />
+                        <input type="submit" value="Modifier photo de profil" />
                     </form>
                     <form method="post" action="forms/uploadphoto.php?type=couverture" enctype="multipart/form-data">
                         <input type="file" name="photo" required />
-                        <input class="btn" type="submit" value="Modifier photo de couverture" />
+                        <input type="submit" value="Modifier photo de couverture" />
                     </form>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="center-container" style="height: 150px;">
-                <div id="ajout" class="center">
-                    <a class="btn" href="ajoutarticle.php">+ Ajouter un article</a>
-                    <a class="btn" href="ajoutstock.php">+ Ajouter un stock</a>
-                </div>
-            </div>
-            <div id="stocks">
-                <?php
-                $req = $bdd->query('SELECT * FROM articles WHERE vendeur_id = ' . $_SESSION['utilisateur']['ID'] . ' ORDER BY id DESC');
-                while ($tmp = $req->fetch()) {
-                    $reqstock = $bdd->query('SELECT * FROM stocks WHERE article_id = ' . $tmp['id']);
-                    while ($tmpstock = $reqstock->fetch()) { ?>
-                        <div class="stock">
-                            <div class="stock-nom" <?php if ($tmpstock['stock'] <= 0) { ?>style="text-decoration: line-through;" <?php } ?>>
-                                <span style="font-size: 18px; font-weight: 500;"><?php echo $tmp['nom'] ?></span>
-                                / <span><?php echo $tmpstock['taille'] ?></span>
-                                / <span><?php echo $tmpstock['couleur'] ?></span>
-                            </div>
+
+        <div id="boutons" style="margin-top: 20px; text-align:right;">
+            <a href="ajoutarticle.php">+ Ajouter un article</a>
+            <a href="ajoutstock.php">+ Ajouter un stock</a>
+        </div>
+
+        <div id="liste">
+            <?php
+            $req = $bdd->query('SELECT * FROM articles WHERE vendeur_id = ' . $_SESSION['utilisateur']['ID'] . ' ORDER BY id DESC');
+            while ($article = $req->fetch()) {
+                $reqstock = $bdd->query('SELECT * FROM stocks WHERE article_id = ' . $article['id']);
+                while ($stock = $reqstock->fetch()) { ?>
+
+                    <div class="row justify-content-between">
+                        <div class="col-sm-1 stock-img-container"><img alt="" src="<?php echo (chemin_photo('images/articles/', $article['id'])) ?>" /></div>
+                        <div class="col-sm" style="text-align:left;<?php if ($stock['stock'] <= 0) { ?>text-decoration: line-through;<?php } ?>"><a href="article.php?id=<?php echo $article['id'] ?>" class="stock-article-nom"><?php echo $article['nom'] ?></a>
+                            <span><?php echo $stock['taille'] ?></span>
+                            / <span><?php echo $stock['couleur'] ?></span>
+                        </div>
+                        <div class="col-sm-2 row">
                             <?php
-                            $lien = "";
-                            if ($tmpstock['stock'] > 0) {
-                                $lien = 'actions/changerstock.php?type=diminuer&id=' . $tmpstock['id'];
+                            $lien_moins = "";
+                            if ($stock['stock'] > 0) {
+                                $lien_moins = 'actions/changerstock.php?type=diminuer&id=' . $stock['id'];
                             }
                             ?>
-                            <div><a class="btn" href="<?php echo $lien ?>">-</a></div>
-                            <div><?php echo $tmpstock['stock'] ?></div>
-                            <div><a class="btn" href="actions/changerstock.php?type=augmenter&id=<?php echo $tmpstock['id'] ?>">+</a></div>
-                            <a href="actions/supprimerstock.php?id=<?php echo $tmpstock['id'] ?>"><img alt="supprimer" src="images/supprimer.png" width="20px" height="20px" /></a>
+                            <div style="width:50px;"><a href="<?php echo $lien_moins ?>">-</a></div>
+                            <div style="width:50px;"><?php echo $stock['stock'] ?></div>
+                            <div style="width:50px;"><a href="actions/changerstock.php?type=augmenter&id=<?php echo $stock['id'] ?>">+</a></div>
                         </div>
-                    <?php }
-            } ?>
-            </div>
+
+                        <div class="col-sm-1">
+                            <a href="actions/supprimerstock.php?id=<?php echo $stock['id'] ?>">
+                                <img alt="supprimer" src="images/supprimer.png" width="20px" height="20px" />
+                            </a>
+                        </div>
+                    </div>
+
+                <?php }
+        } ?>
         </div>
     </div>
 </body>

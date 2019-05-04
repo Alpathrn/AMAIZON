@@ -19,7 +19,7 @@ include('head.php');
     <div id="content" class="container">
         <div class="center-container">
             <div class="center formulaire">
-                <h1>Modifier le MDP</h1>
+                <h1>Modifier le MdP</h1>
                 <form method="post" action="forms/modifiermdp.php">
                     <?php if ($_GET['erreur'] == 1) { ?><p class="erreur">Incorrect, Réessayez.</p> <?php } ?>
                     <input class="form-control" type="password" name="ancien" placeholder="Ancien mot de passe" autofocus />

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 03, 2019 at 01:29 AM
+-- Generation Time: May 03, 2019 at 02:56 AM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -39,7 +39,11 @@ INSERT INTO `articles` (`id`, `vendeur_id`, `nom`, `prix`, `description`, `categ
 (2, 7, 'iPad', 959, 'Superbe tablette', 4, 0),
 (3, 7, 'Sweat Capuche', 25, 'Capuche grise et inscription niveau clavicule', 3, 0),
 (7, 7, 'Lunettes pour cyclope', 347, 'Objet rare et extrêmement utile pour les cyclopes souffrants de myopie.', 3, 0),
-(8, 7, 'BD Game of Thrones', 15, 'Premier tome de la série en bande dessinée', 1, 0);
+(8, 7, 'BD Game of Thrones', 15, 'Premier tome de la série en bande dessinée', 1, 0),
+(9, 7, 'Dune sombre', 3, 'Bruit de nature', 2, 0),
+(10, 7, 'Les fondamentaux de la prise de vue', 30, 'Les fondamentaux de la prise de vue', 1, 0),
+(11, 7, 'Ballon de Football', 24, 'Pour jouier à la baballe', 4, 0),
+(12, 7, 'Album de Soprano', 10, 'Soprababa', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -88,7 +92,8 @@ INSERT INTO `commandes` (`id`, `utilisateur_id`, `prenom`, `nom`, `adresse`, `te
 (2, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556828254, 160),
 (3, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556828459, 15),
 (4, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556830923, 1918),
-(5, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556831587, 50);
+(5, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556831587, 50),
+(6, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556852113, 40);
 
 -- --------------------------------------------------------
 
@@ -99,8 +104,8 @@ INSERT INTO `commandes` (`id`, `utilisateur_id`, `prenom`, `nom`, `adresse`, `te
 CREATE TABLE `stocks` (
   `id` int(11) NOT NULL,
   `article_id` int(11) NOT NULL,
-  `taille` varchar(10) DEFAULT NULL,
-  `couleur` varchar(30) NOT NULL,
+  `taille` varchar(20) NOT NULL DEFAULT 'Taille unique',
+  `couleur` varchar(30) NOT NULL DEFAULT 'Couleur unique',
   `stock` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -110,13 +115,16 @@ CREATE TABLE `stocks` (
 
 INSERT INTO `stocks` (`id`, `article_id`, `taille`, `couleur`, `stock`) VALUES
 (1, 1, '38', 'Grises/Bleues', 30),
-(3, 3, 'M', 'Noir', 1),
-(4, 3, 'M', 'Bleu', 84),
+(3, 3, 'M', 'Noir', 3),
+(4, 3, 'M', 'Bleu', 18),
 (5, 2, '128GB', '', 3),
 (6, 2, '256GB', '', 9),
-(8, 7, 'Standard', 'Noir', 2),
-(10, 8, 'A4', 'Normal', 101),
-(11, 1, '42', 'Noires', 6);
+(8, 7, 'Standard', 'Noir', 0),
+(10, 8, 'A4', 'Normal', 100),
+(11, 1, '42', 'Noires', 6),
+(12, 10, 'Non', 'Non', 11),
+(13, 11, 'Taillle unique', 'Couleur unique', 22),
+(14, 12, 'Taille unique', 'Couleur unique', 0);
 
 -- --------------------------------------------------------
 
@@ -174,7 +182,8 @@ INSERT INTO `ventes` (`article_id`, `stock_id`, `commande_id`, `utilisateur_id`,
 (1, 1, 2, 7, 1, 110),
 (8, 10, 3, 7, 1, 15),
 (2, 5, 4, 7, 2, 1918),
-(3, 3, 5, 7, 2, 50);
+(3, 3, 5, 7, 2, 50),
+(12, 14, 6, 7, 4, 40);
 
 --
 -- Indexes for dumped tables
@@ -230,7 +239,7 @@ ALTER TABLE `ventes`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -242,13 +251,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `commandes`
 --
 ALTER TABLE `commandes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `utilisateurs`

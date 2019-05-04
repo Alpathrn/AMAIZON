@@ -38,8 +38,8 @@ include('head.php');
                 $stock = $reqstock->fetch(); ?>
                 <div class="row justify-content-start">
                     <div class="col-sm-1 stock-img-container"><img alt="" src="<?php echo (chemin_photo('images/articles/', $article['id'])) ?>" /></div>
-                    <div class="col-sm" style="text-align:left;"><span class="stock-article-nom"><?php echo $article['nom'] ?></span>
-                        / <span><?php echo $stock['taille'] ?></span>
+                    <div class="col-sm" style="text-align:left;"><a href="article.php?id=<?php echo $article['id'] ?>" class="stock-article-nom"><?php echo $article['nom'] ?></a>
+                        <span><?php echo $stock['taille'] ?></span>
                         / <span><?php echo $stock['couleur'] ?></span>
                     </div>
                     <div class="col-sm-2 prix">

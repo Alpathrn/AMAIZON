@@ -4,9 +4,9 @@ $bdd = new PDO('mysql:host=localhost;dbname=amaizon;charset=utf8', 'root', 'root
 $_POST['prix'] = floatval($_POST['prix']);
 $_POST['categorie'] = intval($_POST['categorie']);
 
-$couleur = $_POST['couleur'];
+$couleur = $_POST['couleur'] ?: 'Couleur unique';
 unset($_POST['couleur']);
-$taille = $_POST['taille'];
+$taille = $_POST['taille'] ?: 'Taille unique';
 unset($_POST['taille']);
 $stock = $_POST['stock'];
 unset($_POST['stock']);

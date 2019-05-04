@@ -33,8 +33,8 @@ include('head.php');
                         <?php } ?>
                     </select>
                     <input class="form-control" type="number" name="prix" placeholder="Prix (en €)" required />
-                    <input class="form-control" type="text" name="couleur" placeholder="Couleur par défaut" required />
-                    <input class="form-control" type="text" name="taille" placeholder="Taille par défaut" required />
+                    <input class="form-control" type="text" name="couleur" placeholder="Couleur (Si vide = Couleur unique)" />
+                    <input class="form-control" type="text" name="taille" placeholder="Taille (Si vide = Taille unique)" />
                     <input class="form-control" type="number" name="stock" placeholder="Quantité de stock" required />
                     <div class="file-input">
                         <label for="photo" style="margin-right:10px;">Photo:</label>
