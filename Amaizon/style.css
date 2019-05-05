@@ -120,6 +120,7 @@ body,
   margin: auto;
 }
 .article {
+  position: relative;
   margin: 16px 0px;
   text-decoration: none;
 }
@@ -160,6 +161,24 @@ body,
   font-size: 24px;
   font-weight: 500;
   color: black;
+}
+.article .badge-promo {
+  position: absolute;
+  top: -15px;
+  left: 0px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: #fcad47;
+  color: white;
+}
+.article .badge-stocks {
+  position: absolute;
+  top: 20px;
+  left: 0px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: gray;
+  color: white;
 }
 
 #article-image {

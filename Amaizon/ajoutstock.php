@@ -31,8 +31,8 @@ include('head.php');
                             <option value="<?php echo $tmp['id'] ?>"><?php echo $tmp['nom'] ?></option>
                         <?php } ?>
                     </select>
-                    <input class="form-control" type="text" name="couleur" placeholder="Couleur" required />
-                    <input class="form-control" type="text" name="taille" placeholder="Taille" required />
+                    <input class="form-control" type="text" name="couleur" placeholder="Couleur (Si vide = Couleur unique)" />
+                    <input class="form-control" type="text" name="taille" placeholder="Taille (Si vide = Taille unique)" />
                     <input class="form-control" type="number" name="stock" placeholder="Quantité de stock" required />
                     <input class="btn" type="submit" value="Ajouter" />
                 </form>

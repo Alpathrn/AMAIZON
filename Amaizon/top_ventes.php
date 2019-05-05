@@ -61,7 +61,7 @@ include('head.php');
             }
             if (!$articles) { ?>
                 <div class="center-container" style="height:300px;">
-                    <div class="center">Pas de ventes dans cette catégorie</div>
+                    <div class="center">Pas de vente dans cette catégorie</div>
                 </div>
             <?php }
         ?>
@@ -79,7 +79,7 @@ include('head.php');
             }
             if (!$articles) { ?>
                 <div class="center-container" style="height:300px;">
-                    <div class="center">Pas de ventes dans cette catégorie</div>
+                    <div class="center">Pas de vente dans cette catégorie</div>
                 </div>
             <?php }
         ?>
@@ -97,7 +97,7 @@ include('head.php');
             }
             if (!$articles) { ?>
                 <div class="center-container" style="height:300px;">
-                    <div class="center">Pas de ventes dans cette catégorie</div>
+                    <div class="center">Pas de vente dans cette catégorie</div>
                 </div>
             <?php }
         ?>
@@ -115,7 +115,7 @@ include('head.php');
             }
             if (!$articles) { ?>
                 <div class="center-container" style="height:300px;">
-                    <div class="center">Pas de ventes dans cette catégorie</div>
+                    <div class="center">Pas de vente dans cette catégorie</div>
                 </div>
             <?php }
         ?>
