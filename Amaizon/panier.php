@@ -27,9 +27,10 @@ include('head.php');
                 foreach ($_SESSION['panier'] as $key => $value) {
                     $reqarticle = $bdd->query('SELECT * FROM articles WHERE id = ' . $value['article_id']);
                     $article = $reqarticle->fetch();
+                    $prix = $article['promotion'] == '0' ? $article['prix'] : $article['prix'] - ($article['prix'] * $article['promotion'] / 100);
                     $reqstock = $bdd->query('SELECT * FROM stocks WHERE id = ' . $key);
                     $stock = $reqstock->fetch();
-                    $total += $article['prix'] * $value['quantite'] ?>
+                    $total += $prix * $value['quantite'] ?>
                     <div class="row justify-content-start">
                         <div class="col-sm-1 stock-img-container"><img alt="" src="<?php echo (chemin_photo('images/articles/', $article['id'])) ?>" /></div>
                         <div class="col-sm" style="text-align:left;"><a href="article.php?id=<?php echo $article['id'] ?>" class="stock-article-nom"><?php echo $article['nom'] ?></a>
@@ -37,7 +38,7 @@ include('head.php');
                             / <span><?php echo $stock['couleur'] ?></span>
                         </div>
                         <div class="col-sm-2 prix">
-                            <?php echo $article['prix'] * $value['quantite'] ?> €
+                            <?php echo $prix * $value['quantite'] ?> €
                         </div>
                         <div class="col-sm-2 row">
                             <div style="width:50px;"><a href="actions/changerpanier.php?type=diminuer&id=<?php echo $key ?>">-</a></div>

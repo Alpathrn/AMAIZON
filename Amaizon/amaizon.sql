@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 03, 2019 at 09:54 PM
+-- Generation Time: May 03, 2019 at 11:35 PM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -48,10 +48,10 @@ INSERT INTO `articles` (`id`, `vendeur_id`, `nom`, `prix`, `description`, `categ
 (14, 1, 'Livret Sushi Shop', 40, 'Livre de recettes, de créations et de conception des plus grands chefs étoilés.', 1, 0, 1),
 (15, 1, 'Vivre avec un chinchilla', 10, 'Livre pour connaître, nourrir et soigner ces petites bêtes affectueuses. ', 1, 0, 1),
 (16, 2, 'Comprendre le PHP', 30, 'Livre pour comprendre et savoir coder ce langage universel.', 1, 0, 1),
-(17, 1, 'Lunettes aviateur', 6, 'Jolies lunettes pour voler dans les airs.', 3, 0, 1),
+(17, 1, 'Lunettes aviateur', 6, 'Jolies lunettes pour voler dans les airs.', 3, 50, 1),
 (19, 1, 'Sneakers Balenciaga ', 695, 'Une des paires les plus connues de sneakers, on aime ou on aime pas.', 3, 0, 1),
-(20, 1, 'Stan Smith pour bébé', 31, 'La paire classique mais indémodable, à toujours avoir dans son placard.', 3, 0, 1),
-(21, 1, 'Bomber militaire', 50, 'Bomber militaire US aviateur avec écussons. ', 3, 0, 1),
+(20, 1, 'Stan Smith pour bébé', 31, 'La paire classique mais indémodable, à toujours avoir dans son placard.', 3, 30, 1),
+(21, 1, 'Bomber militaire', 50, 'Bomber militaire US aviateur avec écussons. ', 3, 50, 1),
 (22, 1, 'Trottinette électrique', 399, 'Pour parcourir les rues de votre ville avec fluidité et plaisir, en préservant l\'environnement.', 4, 0, 1),
 (23, 3, 'Huawei Pro', 549, 'Un des derniers smartphones pour améliorer votre quotidien.', 4, 0, 0),
 (24, 3, 'Peinture acrylique', 23, 'Peinture pour décorer ou simplement vous amuser avec vos enfants, multiples coloris pour satisfaire tout le monde.', 4, 0, 0),
@@ -145,7 +145,7 @@ INSERT INTO `stocks` (`id`, `article_id`, `taille`, `couleur`, `stock`) VALUES
 (19, 17, 'Taille unique', 'Cuivre', 28),
 (20, 18, '39', 'Blanche', 2),
 (22, 18, '36', 'Blanche', 1),
-(23, 20, '19', 'Blanche', 3),
+(23, 20, '19', 'Blanche', 4),
 (24, 21, '10', 'Kaki', 2),
 (25, 22, 'Taille unique', 'Noir', 24),
 (26, 23, 'Taille unique', 'Multicolore', 7),
@@ -157,7 +157,8 @@ INSERT INTO `stocks` (`id`, `article_id`, `taille`, `couleur`, `stock`) VALUES
 (32, 29, 'Taille unique', 'Couleur unique', 101),
 (33, 30, 'Taille unique', 'Couleur unique', 35),
 (34, 31, 'Taille unique', 'Jaune', 32),
-(35, 32, 'Taille unique', 'Couleur unique', 0);
+(35, 32, 'Taille unique', 'Couleur unique', 10),
+(36, 17, 'Taille unique', 'Marron', 3);
 
 -- --------------------------------------------------------
 
@@ -195,7 +196,8 @@ INSERT INTO `utilisateurs` (`ID`, `nom`, `prenom`, `mail`, `mdp`, `adresse`, `te
 (12, 'Le Dain', 'Hadrien', 'hadrien.ledain@edu.ece.fr', 'had', '10 rue lecourbe 75015 Paris', '+33769157402', 'vendeur', 'Visa', '2323232323232323', 'Hadrien Le Dain', '2019-08', '123', 0, 1),
 (13, 'Lurati', 'Clément', 'clement.lurati@edu.ece.fr', 'cle', '5 rue edgar faure 75015 Paris', '+33680815308', 'acheteur', 'Mastercard', '3434343434343434', 'Clément Lurati', '2019-10', '123', 0, 1),
 (14, 'Dreyfus', 'Eva', 'eva.dreyfus@edu.ece.fr', 'eva', '30 rue de la rochefoucauld 92100 Boulogne ', '+33623748939', 'acheteur', 'Mastercard', '4545454545454545', 'Eva Dreyfus ', '2019-12', '123', 0, 1),
-(15, 'Cluzeau', 'Valentin', 'valentin.cluzeau@edu.ece.fr', 'val', '132 rue damrémont 75018 Paris ', '+33650246029', 'deux', 'Paypal', '1234567890098765', 'Valentin Cluzeau', '2020-01', '123', 0, 1);
+(15, 'Cluzeau', 'Valentin', 'valentin.cluzeau@edu.ece.fr', 'val', '132 rue damrémont 75018 Paris ', '+33650246029', 'deux', 'Paypal', '1234567890098765', 'Valentin Cluzeau', '2020-01', '123', 0, 1),
+(17, 'Thirouin', 'Hervé', 'herve.thirouin@edu.ece.fr', 'her', 'Rue Grosille PLAILLY', '0607080910', 'vendeur', 'Visa', '0000000000000000', '-', '2019-05', '000', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -287,13 +289,13 @@ ALTER TABLE `commandes`
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `ventes`

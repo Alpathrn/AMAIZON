@@ -42,9 +42,10 @@ include('head.php');
                     <?php foreach ($_SESSION['panier'] as $key => $value) {
                         $reqarticle = $bdd->query('SELECT * FROM articles WHERE id = ' . $value['article_id']);
                         $article = $reqarticle->fetch();
+                        $prix = $article['promotion'] == '0' ? $article['prix'] : $article['prix'] - ($article['prix'] * $article['promotion'] / 100);
                         $reqstock = $bdd->query('SELECT * FROM stocks WHERE id = ' . $key);
                         $stock = $reqstock->fetch();
-                        $total += $article['prix'] * $value['quantite'];
+                        $total += $prix * $value['quantite'];
                     } ?>
                     <div style="margin: 16px 0px;text-align: right;">
                         <span style="margin-right: 16px;">Total :</span>

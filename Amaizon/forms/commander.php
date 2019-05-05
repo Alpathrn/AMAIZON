@@ -24,6 +24,7 @@ if ($utilisateur['typecarte'] == $_POST['typecarte']) {
                     foreach ($_SESSION['panier'] as $key => $value) {
                         $reqarticle = $bdd->query('SELECT * FROM articles WHERE id = ' . $value['article_id']);
                         $article = $reqarticle->fetch();
+                        $prix = $article['promotion'] == '0' ? $article['prix'] : $article['prix'] - ($article['prix'] * $article['promotion'] / 100);
                         $reqstock = $bdd->query('SELECT * FROM stocks WHERE id = ' . $key);
                         $stock = $reqstock->fetch();
 
@@ -32,12 +33,12 @@ if ($utilisateur['typecarte'] == $_POST['typecarte']) {
                             ventes (utilisateur_id, article_id, stock_id, commande_id, quantite, prix) 
                             VALUES 
                             (' . $_SESSION['utilisateur']['ID'] . ', ' . $article['id'] . ', ' . $stock['id'] . ', ' . $commande['id'] . ', ?, ?)'
-                        )->execute(array($value['quantite'], $article['prix'] * $value['quantite']));
+                        )->execute(array($value['quantite'], $prix * $value['quantite']));
 
                         $reduire_stock = $bdd->prepare('UPDATE stocks SET stock = stock - ' . $value['quantite'] . ' WHERE id = ?');
                         $reduire_stock->execute(array($stock['id']));
 
-                        $total += $article['prix'] * $value['quantite'];
+                        $total += $prix * $value['quantite'];
                     }
 
                     $req = $bdd->prepare('UPDATE commandes SET prix_total = ? WHERE id = ?');

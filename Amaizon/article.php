@@ -7,6 +7,7 @@ include('fonctions.php');
 $bdd = new PDO('mysql:host=localhost;dbname=amaizon;charset=utf8', 'root', 'root');
 $req = $bdd->query('SELECT * FROM articles WHERE id = ' . $_GET['id']);
 $article = $req->fetch();
+$prix = $article['promotion'] == '0' ? $article['prix'] : $article['prix'] - ($article['prix'] * $article['promotion'] / 100);
 $req = $bdd->query('SELECT * FROM utilisateurs WHERE ID = ' . $article['vendeur_id']);
 $vendeur = $req->fetch();
 
@@ -37,7 +38,8 @@ include('head.php');
                         $stock_total += $tmp['stock'];
                     } ?>
                     <h3 <?php if ($stock_total == 0) { ?>style="text-decoration: line-through;" <?php } ?>>
-                        <?php echo $article['prix'] ?> €
+                        <?php echo $prix ?> €
+                        <?php if ($article['promotion'] != '0') { ?><b style="text-decoration:line-through; font-size: 14px; filter:brightness(50%)"><?php echo $article['prix'] ?>€</b><?php } ?>
                     </h3>
                     <div class="label">Vendu par :</div>
                     <p style="width:400px;"><?php echo ucfirst($vendeur['prenom']) . ' ' . strtoupper($vendeur['nom']) ?></p>

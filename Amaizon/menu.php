@@ -24,6 +24,7 @@ if ($_GET['redirection']) {
         <li class="menu-li">Ventes Flash
             <ul>
                 <li><a href="top_ventes.php">Meilleures Ventes</a></li>
+                <li><a href="promotions.php">Promotions</a></li>
             </ul>
         </li>
         <?php if ($_SESSION['utilisateur']['type'] == 'deux' or $_SESSION['utilisateur']['type'] == 'vendeur') { ?>
