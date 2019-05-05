@@ -62,7 +62,7 @@ include('head.php');
                             <span><?php echo $stock['taille'] ?></span>
                             / <span><?php echo $stock['couleur'] ?></span>
                         </div>
-                        <div class="col-sm-2 row">
+                        <div class="col-sm-3 row">
                             <?php
                             $lien_moins = "";
                             if ($stock['stock'] > 0) {

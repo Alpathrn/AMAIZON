@@ -18,8 +18,17 @@ include('head.php');
     <div id="content" class="container">
         <h1>Bienvenue sur Amaizon ! <span style="font-size: 14px;">Faites comme à la maison</span></h1>
         <h2>Espace Admin</h2>
-        <h3>Vendeurs</h3>
-        <p>Désactiver un utilisateur le bloque à la connexion et rend invisible ses articles.</p>
+        <div class="row justify-content-between">
+            <div class="col-7">
+                <h3 style="margin-top:40px;">Vendeurs</h3>
+                <p style="margin-bottom: 0px;">Désactiver un utilisateur le bloque à la connexion et rend invisible ses articles.</p>
+            </div>
+            <div class="col-5" style="position: relative;">
+                <div id="boutons" style="position:absolute;right:0;bottom:0;">
+                    <a href="ajoutvendeur.php">+ Ajouter un vendeur</a>
+                </div>
+            </div>
+        </div>
         <div id="liste">
             <?php
             $ureq = $bdd->query('SELECT * FROM utilisateurs WHERE type = "vendeur" OR type = "deux"');
