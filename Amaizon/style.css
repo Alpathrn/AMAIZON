@@ -99,6 +99,9 @@ body,
   text-decoration: none;
   background-color: #fcad47;
 }
+.selected {
+  font-weight: bold !important;
+}
 
 /* CONTENT */
 #content {
@@ -280,6 +283,9 @@ body,
   width: 500px;
   display: flex;
   justify-content: space-between;
+}
+input:disabled {
+  cursor: not-allowed;
 }
 
 /* ESPACE VENTE */

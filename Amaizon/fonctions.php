@@ -15,3 +15,10 @@ function chemin_photo($repertoire, $nomfichier)
 		$ext = $repertoire . '/' . $nomfichier . '.bmp';
 	return $ext;
 }
+
+function selected($page, $nom)
+{
+	if ($page->page == $nom) {
+		echo 'selected';
+	}
+}

@@ -18,6 +18,21 @@ if ($_POST['quantite'] <= $stock['stock']) {
     } else {
         $_SESSION['panier'][$stock['id']] = array("article_id" => $_POST['id'], "quantite" => $_POST['quantite']);
     }
+
+    if ($_SESSION['utilisateur']) {
+        $reqpanier = $bdd->query('SELECT * FROM paniers WHERE id = ' . $_SESSION['utilisateur']['ID']);
+        $panier = $reqpanier->fetch();
+        if (!$panier) {
+            $bdd->prepare(
+                'INSERT INTO paniers (panier, id) VALUES (?, ?)'
+            )->execute(array(serialize($_SESSION['panier']), $_SESSION['utilisateur']['ID']));
+        } else {
+            $bdd->prepare(
+                'UPDATE paniers SET panier = ? WHERE id = ?'
+            )->execute(array(serialize($_SESSION['panier']), $_SESSION['utilisateur']['ID']));
+        }
+    }
+
     header('Location: ../article.php?succes=1&id=' . $_POST['id']);
 } else {
     header('Location: ../article.php?erreur=1&id=' . $_POST['id']);

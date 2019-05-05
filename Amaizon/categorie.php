@@ -10,7 +10,7 @@ $categorie = $req->fetch();
 
 $page = (object)[
     'title' => 'Amaizon - ' . $categorie['nom'],
-    'page' => 'category'
+    'page' => $categorie['nomsimple']
 ];
 include('head.php');
 ?>

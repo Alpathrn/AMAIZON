@@ -9,8 +9,8 @@ $req->execute(array($_GET['id']));
 $categorie = $req->fetch();
 
 $page = (object)[
-    'title' => 'Amaizon - ' . $categorie['nom'],
-    'page' => 'category'
+    'title' => 'Amaizon - Meilleures Ventes',
+    'page' => 'top_ventes'
 ];
 include('head.php');
 ?>

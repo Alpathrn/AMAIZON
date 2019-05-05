@@ -45,6 +45,17 @@ if ($utilisateur['typecarte'] == $_POST['typecarte']) {
                     $req->execute(array($total, $commande['id']));
 
                     unset($_SESSION['panier']);
+                    $reqpanier = $bdd->query('SELECT * FROM paniers WHERE id = ' . $_SESSION['utilisateur']['ID']);
+                    $panier = $reqpanier->fetch();
+                    if (!$panier) {
+                        $bdd->prepare(
+                            'INSERT INTO paniers (panier, id) VALUES (?, ?)'
+                        )->execute(array(serialize(array()), $_SESSION['utilisateur']['ID']));
+                    } else {
+                        $bdd->prepare(
+                            'UPDATE paniers SET panier = ? WHERE id = ?'
+                        )->execute(array(serialize(array()), $_SESSION['utilisateur']['ID']));
+                    }
                     unset($_SESSION['dernier_formulaire']);
 
                     header('Location: ../commande.php?validation=oui&id=' . $commande['id']);

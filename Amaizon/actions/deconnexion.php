@@ -1,4 +1,5 @@
 <?php
 session_start();
-$_SESSION['utilisateur'] = false;
+unset($_SESSION['utilisateur']);
+unset($_SESSION['panier']);
 header('Location: ../index.php');

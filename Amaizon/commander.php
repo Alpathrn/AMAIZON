@@ -56,8 +56,14 @@ include('head.php');
                     <?php if ($_GET['erreur'] == 'num') { ?> <div class="alert alert-danger">Numéro de la carte incorrect.</div> <?php } ?>
                     <?php if ($_GET['erreur'] == 'expiration') { ?> <div class="alert alert-danger">Date d'expiration incorrect.</div> <?php } ?>
                     <?php if ($_GET['erreur'] == 'cvv') { ?> <div class="alert alert-danger">CVV incorrect.</div> <?php } ?>
-                    <input id="commander" style="margin: 0px;" type="submit" value="Passer Commande" /><br />
-                    <span>Ce n'est pas ce que vous voulez commander? <a href="panier.php">Retournez au panier</a></span>
+                    <input id="commander" style="margin: 0px;" type="submit" value="Passer Commande" <?php if ($_SESSION['utilisateur']['type'] == 'vendeur') {
+                                                                                                            echo 'disabled';
+                                                                                                        } ?> /><br />
+                    <?php if ($_SESSION['utilisateur']['type'] == 'vendeur') { ?>
+                        <br /><span>Vous ne pouvez pas acheter car vous êtes vendeur.</span><br />
+                    <?php } else { ?>
+                        <span>Ce n'est pas ce que vous voulez commander? <a href="panier.php">Retournez au panier</a></span>
+                    <?php } ?>
                 </form>
             </div>
         </div>

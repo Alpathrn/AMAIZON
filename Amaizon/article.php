@@ -55,7 +55,7 @@ include('head.php');
                         <?php } ?>
                     </select>
                     <div class="label">Quantité :</div>
-                    <input class="form-control" type="number" name="quantite" value="1" required />
+                    <input class="form-control" type="number" name="quantite" value="1" min="1" required />
                     <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>" />
                     <input class="btn" type="submit" value="Ajouter au panier" <?php if ($stock_total == 0 or $_SESSION['utilisateur']['type'] == 'vendeur') { ?>disabled<?php } ?> />
                     <?php if ($_SESSION['utilisateur']['type'] == 'vendeur') { ?>

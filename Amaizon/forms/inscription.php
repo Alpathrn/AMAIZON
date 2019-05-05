@@ -30,5 +30,11 @@ if (!$erreur) {
     $_SESSION['utilisateur'] = $tmp;
     $req->closeCursor();
 
+    if ($_SESSION['panier']) {
+        $bdd->prepare(
+            'INSERT INTO paniers (panier, id) VALUES (?, ?)'
+        )->execute(array(serialize($_SESSION['panier']), $_SESSION['utilisateur']['ID']));
+    }
+
     header('Location: ../' . $redirection);
 }
