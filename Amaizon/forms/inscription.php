@@ -19,9 +19,9 @@ if (!$erreur) {
 
     $bdd->prepare(
         'INSERT INTO 
-        utilisateurs (prenom, nom, mail, mdp, adresse, telephone, type, typecarte, nomcarte, numcarte, expiration, cvv, admin) 
+        utilisateurs (prenom, nom, mail, mdp, adresse, telephone, type, typecarte, nomcarte, numcarte, expiration, cvv, admin, actif) 
         VALUES 
-        (:prenom, :nom, :mail, :mdp, :adresse, :telephone, :type, :typecarte, :nomcarte, :numcarte, :expiration, :cvv, 0)'
+        (:prenom, :nom, :mail, :mdp, :adresse, :telephone, :type, :typecarte, :nomcarte, :numcarte, :expiration, :cvv, 0, 1)'
     )->execute($_POST);
 
     $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE mail = ?');

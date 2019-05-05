@@ -50,7 +50,7 @@ if ($_GET['redirection']) {
                 </div>
             </div>
             <a class="bottom-link" href="moncompte.php">Mon compte</a>
-            <a class="bottom-link" href="">Espace Admin</a>
+            <?php if ($_SESSION['utilisateur']['admin']) { ?><a class="bottom-link" href="espaceadmin.php">Espace Admin</a><?php } ?>
             <a class="bottom-link" href="actions/deconnexion.php">
                 Me déconnecter
             </a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 03, 2019 at 04:17 PM
+-- Generation Time: May 03, 2019 at 09:54 PM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -27,41 +27,42 @@ CREATE TABLE `articles` (
   `prix` float NOT NULL,
   `description` text NOT NULL,
   `categorie` int(11) NOT NULL,
-  `promotion` int(3) NOT NULL DEFAULT '0'
+  `promotion` int(3) NOT NULL DEFAULT '0',
+  `visible` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `vendeur_id`, `nom`, `prix`, `description`, `categorie`, `promotion`) VALUES
-(1, 3, 'Air Max 95', 110, 'Baskets sportives, stylées pour la vie de tous les jours et appréciées également pour les randonnées.', 3, 0),
-(2, 2, 'iPad', 959, 'Tablette high-tech et pratique quotidiennement pour le travail ou le loisir.', 4, 0),
-(3, 2, 'Sweat Capuche', 25, 'Avec sa capuche grise et son inscription au niveau de la clavicule, ce sweat sera vous rendre encore plus beau.', 3, 0),
-(7, 3, 'Lunettes pour cyclope', 347, 'Objet rare et extrêmement utile pour les cyclopes souffrants de myopie.', 3, 0),
-(8, 3, 'BD Game of Thrones', 15, 'Premier tome de la série en bande dessinée pour se plonger dans cet univers si peu commun.', 1, 0),
-(9, 1, 'Dune sombre', 3, 'Album de bruit de nature pour vous apaiser après une grosse journée.', 2, 0),
-(10, 2, 'Les fondamentaux de la prise de vue', 30, 'Livre sur les fondamentaux de la prise de vue : une aide très importante avant la prise en main de votre appareil.', 1, 0),
-(11, 2, 'Ballon de Football', 24, 'Détente entre copains ou match très important : ce ballon sera indispensable à vos sorties sportives.', 4, 0),
-(13, 1, 'Les misérables - Victor Hugo', 5, 'Une des oeuvres les plus emblématiques de la littérature française, à lire absolument. ', 1, 0),
-(14, 1, 'Livret Sushi Shop', 40, 'Livre de recettes, de créations et de conception des plus grands chefs étoilés.', 1, 0),
-(15, 1, 'Vivre avec un chinchilla', 10, 'Livre pour connaître, nourrir et soigner ces petites bêtes affectueuses. ', 1, 0),
-(16, 2, 'Comprendre le PHP', 30, 'Livre pour comprendre et savoir coder ce langage universel.', 1, 0),
-(17, 1, 'Lunettes aviateur', 6, 'Jolies lunettes pour voler dans les airs.', 3, 0),
-(19, 1, 'Sneakers Balenciaga ', 695, 'Une des paires les plus connues de sneakers, on aime ou on aime pas.', 3, 0),
-(20, 1, 'Stan Smith pour bébé', 31, 'La paire classique mais indémodable, à toujours avoir dans son placard.', 3, 0),
-(21, 1, 'Bomber militaire', 50, 'Bomber militaire US aviateur avec écussons. ', 3, 0),
-(22, 1, 'Trottinette électrique', 399, 'Pour parcourir les rues de votre ville avec fluidité et plaisir, en préservant l\'environnement.', 4, 0),
-(23, 3, 'Huawei Pro', 549, 'Un des derniers smartphones pour améliorer votre quotidien.', 4, 0),
-(24, 3, 'Peinture acrylique', 23, 'Peinture pour décorer ou simplement vous amuser avec vos enfants, multiples coloris pour satisfaire tout le monde.', 4, 0),
-(25, 3, 'Gants de foot ', 23, 'Pour que le gardien de votre équipe arrête toutes les balles.', 4, 0),
-(26, 3, 'Album - 47Ter', 10, 'Un des derniers artistes en vogue, entre freestyle et composition originale.', 2, 0),
-(27, 2, '150 comptines', 11, 'Comptines et chansons pour endormir et apaiser votre bébé.', 2, 0),
-(28, 2, 'Album - Birkin & Gainsbourg', 7, 'Le symphonique : un album reconnu dans le monde entier.', 2, 0),
-(29, 2, 'Soundtrack - A star is born', 15, 'Après le succès du film, redécouvrez les musiques qui ont fait sa réputation.', 2, 0),
-(30, 2, 'Album - Angèle', 14, 'Brol : le premier album d\'une artiste jeune et engagée.', 2, 0),
-(31, 3, 'Brassards canard pour bébé', 25, 'Joli accessoire fashion et de survie pour vos enfants dès le plus bas âge. ', 4, 0),
-(32, 1, 'Album - Jacques Brel', 22, 'Laissez vous porter par les paroles d\'un des plus grands interprètes de la chanson française.', 2, 0);
+INSERT INTO `articles` (`id`, `vendeur_id`, `nom`, `prix`, `description`, `categorie`, `promotion`, `visible`) VALUES
+(1, 3, 'Air Max 95', 110, 'Baskets sportives, stylées pour la vie de tous les jours et appréciées également pour les randonnées.', 3, 0, 0),
+(2, 2, 'iPad', 959, 'Tablette high-tech et pratique quotidiennement pour le travail ou le loisir.', 4, 0, 1),
+(3, 2, 'Sweat Capuche', 25, 'Avec sa capuche grise et son inscription au niveau de la clavicule, ce sweat sera vous rendre encore plus beau.', 3, 0, 1),
+(7, 3, 'Lunettes pour cyclope', 347, 'Objet rare et extrêmement utile pour les cyclopes souffrants de myopie.', 3, 0, 0),
+(8, 3, 'BD Game of Thrones', 15, 'Premier tome de la série en bande dessinée pour se plonger dans cet univers si peu commun.', 1, 0, 0),
+(9, 1, 'Dune sombre', 3, 'Album de bruit de nature pour vous apaiser après une grosse journée.', 2, 0, 1),
+(10, 2, 'Les fondamentaux de la prise de vue', 30, 'Livre sur les fondamentaux de la prise de vue : une aide très importante avant la prise en main de votre appareil.', 1, 0, 1),
+(11, 2, 'Ballon de Football', 24, 'Détente entre copains ou match très important : ce ballon sera indispensable à vos sorties sportives.', 4, 0, 1),
+(13, 1, 'Les misérables - Victor Hugo', 5, 'Une des oeuvres les plus emblématiques de la littérature française, à lire absolument. ', 1, 0, 1),
+(14, 1, 'Livret Sushi Shop', 40, 'Livre de recettes, de créations et de conception des plus grands chefs étoilés.', 1, 0, 1),
+(15, 1, 'Vivre avec un chinchilla', 10, 'Livre pour connaître, nourrir et soigner ces petites bêtes affectueuses. ', 1, 0, 1),
+(16, 2, 'Comprendre le PHP', 30, 'Livre pour comprendre et savoir coder ce langage universel.', 1, 0, 1),
+(17, 1, 'Lunettes aviateur', 6, 'Jolies lunettes pour voler dans les airs.', 3, 0, 1),
+(19, 1, 'Sneakers Balenciaga ', 695, 'Une des paires les plus connues de sneakers, on aime ou on aime pas.', 3, 0, 1),
+(20, 1, 'Stan Smith pour bébé', 31, 'La paire classique mais indémodable, à toujours avoir dans son placard.', 3, 0, 1),
+(21, 1, 'Bomber militaire', 50, 'Bomber militaire US aviateur avec écussons. ', 3, 0, 1),
+(22, 1, 'Trottinette électrique', 399, 'Pour parcourir les rues de votre ville avec fluidité et plaisir, en préservant l\'environnement.', 4, 0, 1),
+(23, 3, 'Huawei Pro', 549, 'Un des derniers smartphones pour améliorer votre quotidien.', 4, 0, 0),
+(24, 3, 'Peinture acrylique', 23, 'Peinture pour décorer ou simplement vous amuser avec vos enfants, multiples coloris pour satisfaire tout le monde.', 4, 0, 0),
+(25, 3, 'Gants de foot ', 23, 'Pour que le gardien de votre équipe arrête toutes les balles.', 4, 0, 0),
+(26, 3, 'Album - 47Ter', 10, 'Un des derniers artistes en vogue, entre freestyle et composition originale.', 2, 0, 0),
+(27, 2, '150 comptines', 11, 'Comptines et chansons pour endormir et apaiser votre bébé.', 2, 0, 1),
+(28, 2, 'Album - Birkin & Gainsbourg', 7, 'Le symphonique : un album reconnu dans le monde entier.', 2, 0, 1),
+(29, 2, 'Soundtrack - A star is born', 15, 'Après le succès du film, redécouvrez les musiques qui ont fait sa réputation.', 2, 0, 1),
+(30, 2, 'Album - Angèle', 14, 'Brol : le premier album d\'une artiste jeune et engagée.', 2, 0, 1),
+(31, 3, 'Brassards canard pour bébé', 25, 'Joli accessoire fashion et de survie pour vos enfants dès le plus bas âge. ', 4, 0, 0),
+(32, 1, 'Album - Jacques Brel', 22, 'Laissez vous porter par les paroles d\'un des plus grands interprètes de la chanson française.', 2, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -156,7 +157,7 @@ INSERT INTO `stocks` (`id`, `article_id`, `taille`, `couleur`, `stock`) VALUES
 (32, 29, 'Taille unique', 'Couleur unique', 101),
 (33, 30, 'Taille unique', 'Couleur unique', 35),
 (34, 31, 'Taille unique', 'Jaune', 32),
-(35, 32, 'Taille unique', 'Couleur unique', 7);
+(35, 32, 'Taille unique', 'Couleur unique', 0);
 
 -- --------------------------------------------------------
 
@@ -173,26 +174,28 @@ CREATE TABLE `utilisateurs` (
   `adresse` text NOT NULL,
   `telephone` varchar(20) NOT NULL,
   `type` varchar(10) NOT NULL,
+  `typecarte` varchar(30) NOT NULL,
   `numcarte` varchar(20) NOT NULL,
   `nomcarte` varchar(60) NOT NULL,
   `expiration` varchar(10) NOT NULL,
   `cvv` varchar(3) NOT NULL,
-  `admin` tinyint(1) NOT NULL
+  `admin` tinyint(1) NOT NULL,
+  `actif` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`ID`, `nom`, `prenom`, `mail`, `mdp`, `adresse`, `telephone`, `type`, `numcarte`, `nomcarte`, `expiration`, `cvv`, `admin`) VALUES
-(1, 'Thirouin', 'Alpaïde', 'alpaide.thirouin@edu.ece.fr', 'alp', '50 avenue de la bourdonnais 75007 Paris', '+33651222517', 'deux', '1234123412341234', 'Alpaïde Thirouin', '2019-11', '123', 1),
-(2, 'Sorcelle', 'Leonie', 'leonie.sorcelle@edu.ece.fr', 'leo', '7 rue du commandant guilbauld 75016 Paris', '+33601172202', 'deux', '1234567812345678', 'Leonie Sorcelle', '2019-09', '456', 1),
-(3, 'Sabot', 'Alice', 'alice.sabot@edu.ece.fr', 'ali', '5 rue rébeval 75019 Paris', '+33699656852', 'deux', '5678567856785678', 'Alice Sabot', '2019-04', '789', 1),
-(11, 'Rohart', 'Margaux', 'margaux.rohart@edu.ece.fr', 'mar', '14 rue du 16 octobre 1914 59890 Quesnoy-sur-Deûle', '+33615437318', 'vendeur', '1212121212121212', 'Margaux Rohart', '2019-08', '123', 0),
-(12, 'Le Dain', 'Hadrien', 'hadrien.ledain@edu.ece.fr', 'had', '10 rue lecourbe 75015 Paris', '+33769157402', 'vendeur', '2323232323232323', 'Hadrien Le Dain', '2019-08', '123', 0),
-(13, 'Lurati', 'Clément', 'clement.lurati@edu.ece.fr', 'cle', '5 rue edgar faure 75015 Paris', '+33680815308', 'acheteur', '3434343434343434', 'Clément Lurati', '2019-10', '123', 0),
-(14, 'Dreyfus', 'Eva', 'eva.dreyfus@edu.ece.fr', 'eva', '30 rue de la rochefoucauld 92100 Boulogne ', '+33623748939', 'acheteur', '4545454545454545', 'Eva Dreyfus ', '2019-12', '123', 0),
-(15, 'Cluzeau', 'Valentin', 'valentin.cluzeau@edu.ece.fr', 'val', '132 rue damrémont 75018 Paris ', '+33650246029', 'deux', '5656565656565656', 'Valentin Cluzeau', '2019-12', '123', 0);
+INSERT INTO `utilisateurs` (`ID`, `nom`, `prenom`, `mail`, `mdp`, `adresse`, `telephone`, `type`, `typecarte`, `numcarte`, `nomcarte`, `expiration`, `cvv`, `admin`, `actif`) VALUES
+(1, 'Thirouin', 'Alpaïde', 'alpaide.thirouin@edu.ece.fr', 'alp', '50 avenue de la bourdonnais 75007 Paris', '+33651222517', 'deux', 'Visa', '1234123412341234', 'Alpaïde Thirouin', '2019-11', '123', 1, 1),
+(2, 'Sorcelle', 'Leonie', 'leonie.sorcelle@edu.ece.fr', 'leo', '7 rue du commandant guilbauld 75016 Paris', '+33601172202', 'deux', 'American Express', '1234567812345678', 'Leonie Sorcelle', '2019-09', '456', 1, 1),
+(3, 'Sabot', 'Alice', 'alice.sabot@edu.ece.fr', 'ali', '5 rue rébeval 75019 Paris', '+33699656852', 'deux', 'Paypal', '5678567856785678', 'Alice Sabot', '2019-04', '789', 1, 0),
+(11, 'Rohart', 'Margaux', 'margaux.rohart@edu.ece.fr', 'mar', '14 rue du 16 octobre 1914 59890 Quesnoy-sur-Deûle', '+33615437318', 'vendeur', 'Visa', '1212121212121212', 'Margaux Rohart', '2019-08', '123', 0, 1),
+(12, 'Le Dain', 'Hadrien', 'hadrien.ledain@edu.ece.fr', 'had', '10 rue lecourbe 75015 Paris', '+33769157402', 'vendeur', 'Visa', '2323232323232323', 'Hadrien Le Dain', '2019-08', '123', 0, 1),
+(13, 'Lurati', 'Clément', 'clement.lurati@edu.ece.fr', 'cle', '5 rue edgar faure 75015 Paris', '+33680815308', 'acheteur', 'Mastercard', '3434343434343434', 'Clément Lurati', '2019-10', '123', 0, 1),
+(14, 'Dreyfus', 'Eva', 'eva.dreyfus@edu.ece.fr', 'eva', '30 rue de la rochefoucauld 92100 Boulogne ', '+33623748939', 'acheteur', 'Mastercard', '4545454545454545', 'Eva Dreyfus ', '2019-12', '123', 0, 1),
+(15, 'Cluzeau', 'Valentin', 'valentin.cluzeau@edu.ece.fr', 'val', '132 rue damrémont 75018 Paris ', '+33650246029', 'deux', 'Paypal', '1234567890098765', 'Valentin Cluzeau', '2020-01', '123', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -290,7 +293,7 @@ ALTER TABLE `stocks`
 -- AUTO_INCREMENT for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `ventes`

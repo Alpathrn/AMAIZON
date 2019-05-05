@@ -21,7 +21,8 @@ include('head.php');
             <div class="center formulaire">
                 <h1>Connexion</h1>
                 <form method="post" action="forms/connexion.php">
-                    <?php if ($_GET['erreur'] == 1) { ?><p class="erreur">Incorrect, Réessayez.</p> <?php } ?>
+                    <?php if ($_GET['erreur'] == 'identifiants') { ?><p class="erreur">Identifiants incorrects, Réessayez.</p> <?php } ?>
+                    <?php if ($_GET['erreur'] == 'desactive') { ?><p class="erreur">Votre compte a été désactivé par un admin.</p> <?php } ?>
                     <input class="form-control" type="text" name="username" placeholder="Email" autofocus />
                     <input class="form-control" type="password" name="password" placeholder="Mot de passe" />
                     <input type="hidden" name="redirection" value="<?php echo $_GET['redirection'] ?>" />

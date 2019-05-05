@@ -7,6 +7,8 @@ include('fonctions.php');
 $bdd = new PDO('mysql:host=localhost;dbname=amaizon;charset=utf8', 'root', 'root');
 $req = $bdd->query('SELECT * FROM articles WHERE id = ' . $_GET['id']);
 $article = $req->fetch();
+$req = $bdd->query('SELECT * FROM utilisateurs WHERE ID = ' . $article['vendeur_id']);
+$vendeur = $req->fetch();
 
 $page = (object)[
     'title' => 'Amaizon - ' . $article['nom'],
@@ -34,7 +36,11 @@ include('head.php');
                     while ($tmp = $req->fetch()) {
                         $stock_total += $tmp['stock'];
                     } ?>
-                    <h3 <?php if ($stock_total == 0) { ?>style="text-decoration: line-through;" <?php } ?>><?php echo $article['prix'] ?> €</h3>
+                    <h3 <?php if ($stock_total == 0) { ?>style="text-decoration: line-through;" <?php } ?>>
+                        <?php echo $article['prix'] ?> €
+                    </h3>
+                    <div class="label">Vendu par :</div>
+                    <p style="width:400px;"><?php echo ucfirst($vendeur['prenom']) . ' ' . strtoupper($vendeur['nom']) ?></p>
                     <div class="label">Description :</div>
                     <p style="width:400px;"><?php echo $article['description'] ?></p>
                     <div class="label">Modèle :</div>
@@ -55,6 +61,19 @@ include('head.php');
                     <?php } ?>
                     <?php if ($_GET['succes']) { ?> <div class="alert alert-success">Ajouté au panier !</div> <?php } ?>
                     <?php if ($_GET['erreur']) { ?> <div class="alert alert-danger">Pas assez de stock...</div> <?php } ?>
+
+                    <?php if ($_SESSION['utilisateur']['admin']) { ?>
+                        <div class="admin-boutons">
+                            <a href="actions/changerarticle.php?type=<?php echo $article['visible'] == '1' ? 'invisible' : 'visible' ?>&id=<?php echo $article['id'] ?>">
+                                <img alt="visibilite" src="images/<?php echo $article['visible'] == '1' ? 'visible' : 'invisible' ?>.png" width="20px" height="20px" />
+                                Rendre <?php echo $article['visible'] == "1" ? 'invisible' : 'visible' ?>
+                            </a>
+                            <a href="actions/changerarticle.php?type=vider&id=<?php echo $article['id'] ?>">
+                                <img alt="visibilite" src="images/supprimer.png" width="15px" height="15px" />
+                                Vider les stocks
+                            </a>
+                        </div>
+                    <?php } ?>
                 </form>
             </div>
         </div>

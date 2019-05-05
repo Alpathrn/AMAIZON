@@ -204,6 +204,31 @@ body,
   font-size: 12px;
   max-width: 400px;
 }
+.admin-boutons {
+  margin-top: 16px;
+  text-align: center;
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+.admin-boutons a {
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  text-decoration: none;
+  color: black;
+  border-radius: 4px;
+  background-color: #f5f6fa;
+}
+.admin-boutons img {
+  margin-right: 10px;
+}
+.admin-boutons a:hover {
+  text-decoration: none;
+  color: rgb(53, 53, 53);
+  background-color: #e6e6e6;
+  transition: background-color 0.5s ease;
+}
 
 /* FORMULAIRE */
 .formulaire {

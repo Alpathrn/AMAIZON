@@ -2,20 +2,25 @@
 session_start();
 $bdd = new PDO('mysql:host=localhost;dbname=amaizon;charset=utf8', 'root', 'root');
 $req = $bdd->query('SELECT * FROM utilisateurs');
-$success = false;
 
 while ($tmp = $req->fetch()) {
     if ($_POST['username'] == $tmp['mail'] and $_POST['password'] == $tmp['mdp']) {
-        $success = true;
-        $_SESSION['utilisateur'] = $tmp;
+        if ($tmp['actif']) {
+            $_SESSION['utilisateur'] = $tmp;
+            $erreur = false;
+        } else {
+            $erreur = 'desactive';
+        }
+        break;
+    } else {
+        $erreur = 'identifiants';
     }
 }
 
 $req->closeCursor();
 
-if ($success) {
+if (!$erreur) {
     header('Location: ../' . $_POST['redirection']);
-}
-if (!$success) {
-    header('Location: ../connexion.php?erreur=1&redirection=' . $_POST['redirection']);
+} else {
+    header('Location: ../connexion.php?erreur=' . $erreur . '&redirection=' . $_POST['redirection']);
 }
