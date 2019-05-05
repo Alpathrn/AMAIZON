@@ -49,7 +49,10 @@ include('head.php');
                     <div class="label">Quantité :</div>
                     <input class="form-control" type="number" name="quantite" value="1" required />
                     <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>" />
-                    <input class="btn" type="submit" value="Ajouter au panier" <?php if ($stock_total == 0) { ?>disabled<?php } ?> />
+                    <input class="btn" type="submit" value="Ajouter au panier" <?php if ($stock_total == 0 or $_SESSION['utilisateur']['type'] == 'vendeur') { ?>disabled<?php } ?> />
+                    <?php if ($_SESSION['utilisateur']['type'] == 'vendeur') { ?>
+                        <span>Vous ne pouvez pas acheter car vous êtes vendeur.</span>
+                    <?php } ?>
                     <?php if ($_GET['succes']) { ?> <div class="alert alert-success">Ajouté au panier !</div> <?php } ?>
                     <?php if ($_GET['erreur']) { ?> <div class="alert alert-danger">Pas assez de stock...</div> <?php } ?>
                 </form>

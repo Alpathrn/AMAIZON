@@ -39,7 +39,7 @@ include('head.php');
                                             echo "Acheteur";
                                         } elseif ($utilisateur['type'] == 'vendeur') {
                                             echo "Vendeur";
-                                        } elseif ($i == 2) {
+                                        } elseif ($utilisateur['type'] == 'deux') {
                                             echo "Acheteur & Vendeur";
                                         } ?></div>
                     <div class="col-2"></div>
@@ -48,7 +48,7 @@ include('head.php');
                     <div class="col-3">Nom</div>
                     <div class="col-7"><?php echo ucfirst($utilisateur['prenom']) . ' ' . strtoupper($utilisateur['nom']) ?></div>
                     <div class="col-2" style="text-align: right;">
-                        <a href="">Modifier</a>
+                        <a href="modifierinfos.php">Modifier</a>
                     </div>
                     <div class="col-3">Mail</div>
                     <div class="col-7"><?php echo $utilisateur['mail'] ?></div>
@@ -61,11 +61,14 @@ include('head.php');
                     <div class="col-2"></div>
 
                     <div class="col-12" style="height: 20px;"></div>
+                    <div class="col-3">Type Carte</div>
+                    <div class="col-7"><?php echo $utilisateur['typecarte'] ?></div>
+                    <div class="col-2" style="text-align: right;">
+                        <a href="modifierinfocarte.php">Modifier</a>
+                    </div>
                     <div class="col-3">Nom Carte</div>
                     <div class="col-7"><?php echo $utilisateur['nomcarte'] ?></div>
-                    <div class="col-2" style="text-align: right;">
-                        <a href="">Modifier</a>
-                    </div>
+                    <div class="col-2"></div>
                     <div class="col-3">Numéro</div>
                     <div class="col-7"><?php echo substr($utilisateur['numcarte'], 0, -4) . '****' ?></div>
                     <div class="col-2"></div>
@@ -84,6 +87,8 @@ include('head.php');
                     </div>
                 </div>
                 <?php if ($_GET['succes'] == 'mdp') { ?> <div class="alert alert-success">Mot de passe modifié !</div> <?php } ?>
+                <?php if ($_GET['succes'] == 'carte') { ?> <div class="alert alert-success">Informations bancaires modifiées !</div> <?php } ?>
+                <?php if ($_GET['succes'] == 'perso') { ?> <div class="alert alert-success">Informations personnelles modifiées !</div> <?php } ?>
             </div>
             <div class="col-lg-5 compte-commandes">
                 <h3>Mes commandes</h3>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 03, 2019 at 02:56 AM
+-- Generation Time: May 03, 2019 at 04:17 PM
 -- Server version: 5.7.25
 -- PHP Version: 7.3.1
 
@@ -35,15 +35,33 @@ CREATE TABLE `articles` (
 --
 
 INSERT INTO `articles` (`id`, `vendeur_id`, `nom`, `prix`, `description`, `categorie`, `promotion`) VALUES
-(1, 7, 'Air Max 95', 110, 'Baskets sportives et élégantes', 3, 0),
-(2, 7, 'iPad', 959, 'Superbe tablette', 4, 0),
-(3, 7, 'Sweat Capuche', 25, 'Capuche grise et inscription niveau clavicule', 3, 0),
-(7, 7, 'Lunettes pour cyclope', 347, 'Objet rare et extrêmement utile pour les cyclopes souffrants de myopie.', 3, 0),
-(8, 7, 'BD Game of Thrones', 15, 'Premier tome de la série en bande dessinée', 1, 0),
-(9, 7, 'Dune sombre', 3, 'Bruit de nature', 2, 0),
-(10, 7, 'Les fondamentaux de la prise de vue', 30, 'Les fondamentaux de la prise de vue', 1, 0),
-(11, 7, 'Ballon de Football', 24, 'Pour jouier à la baballe', 4, 0),
-(12, 7, 'Album de Soprano', 10, 'Soprababa', 2, 0);
+(1, 3, 'Air Max 95', 110, 'Baskets sportives, stylées pour la vie de tous les jours et appréciées également pour les randonnées.', 3, 0),
+(2, 2, 'iPad', 959, 'Tablette high-tech et pratique quotidiennement pour le travail ou le loisir.', 4, 0),
+(3, 2, 'Sweat Capuche', 25, 'Avec sa capuche grise et son inscription au niveau de la clavicule, ce sweat sera vous rendre encore plus beau.', 3, 0),
+(7, 3, 'Lunettes pour cyclope', 347, 'Objet rare et extrêmement utile pour les cyclopes souffrants de myopie.', 3, 0),
+(8, 3, 'BD Game of Thrones', 15, 'Premier tome de la série en bande dessinée pour se plonger dans cet univers si peu commun.', 1, 0),
+(9, 1, 'Dune sombre', 3, 'Album de bruit de nature pour vous apaiser après une grosse journée.', 2, 0),
+(10, 2, 'Les fondamentaux de la prise de vue', 30, 'Livre sur les fondamentaux de la prise de vue : une aide très importante avant la prise en main de votre appareil.', 1, 0),
+(11, 2, 'Ballon de Football', 24, 'Détente entre copains ou match très important : ce ballon sera indispensable à vos sorties sportives.', 4, 0),
+(13, 1, 'Les misérables - Victor Hugo', 5, 'Une des oeuvres les plus emblématiques de la littérature française, à lire absolument. ', 1, 0),
+(14, 1, 'Livret Sushi Shop', 40, 'Livre de recettes, de créations et de conception des plus grands chefs étoilés.', 1, 0),
+(15, 1, 'Vivre avec un chinchilla', 10, 'Livre pour connaître, nourrir et soigner ces petites bêtes affectueuses. ', 1, 0),
+(16, 2, 'Comprendre le PHP', 30, 'Livre pour comprendre et savoir coder ce langage universel.', 1, 0),
+(17, 1, 'Lunettes aviateur', 6, 'Jolies lunettes pour voler dans les airs.', 3, 0),
+(19, 1, 'Sneakers Balenciaga ', 695, 'Une des paires les plus connues de sneakers, on aime ou on aime pas.', 3, 0),
+(20, 1, 'Stan Smith pour bébé', 31, 'La paire classique mais indémodable, à toujours avoir dans son placard.', 3, 0),
+(21, 1, 'Bomber militaire', 50, 'Bomber militaire US aviateur avec écussons. ', 3, 0),
+(22, 1, 'Trottinette électrique', 399, 'Pour parcourir les rues de votre ville avec fluidité et plaisir, en préservant l\'environnement.', 4, 0),
+(23, 3, 'Huawei Pro', 549, 'Un des derniers smartphones pour améliorer votre quotidien.', 4, 0),
+(24, 3, 'Peinture acrylique', 23, 'Peinture pour décorer ou simplement vous amuser avec vos enfants, multiples coloris pour satisfaire tout le monde.', 4, 0),
+(25, 3, 'Gants de foot ', 23, 'Pour que le gardien de votre équipe arrête toutes les balles.', 4, 0),
+(26, 3, 'Album - 47Ter', 10, 'Un des derniers artistes en vogue, entre freestyle et composition originale.', 2, 0),
+(27, 2, '150 comptines', 11, 'Comptines et chansons pour endormir et apaiser votre bébé.', 2, 0),
+(28, 2, 'Album - Birkin & Gainsbourg', 7, 'Le symphonique : un album reconnu dans le monde entier.', 2, 0),
+(29, 2, 'Soundtrack - A star is born', 15, 'Après le succès du film, redécouvrez les musiques qui ont fait sa réputation.', 2, 0),
+(30, 2, 'Album - Angèle', 14, 'Brol : le premier album d\'une artiste jeune et engagée.', 2, 0),
+(31, 3, 'Brassards canard pour bébé', 25, 'Joli accessoire fashion et de survie pour vos enfants dès le plus bas âge. ', 4, 0),
+(32, 1, 'Album - Jacques Brel', 22, 'Laissez vous porter par les paroles d\'un des plus grands interprètes de la chanson française.', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -88,12 +106,7 @@ CREATE TABLE `commandes` (
 --
 
 INSERT INTO `commandes` (`id`, `utilisateur_id`, `prenom`, `nom`, `adresse`, `telephone`, `date`, `prix_total`) VALUES
-(1, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556828254, 1306),
-(2, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556828254, 160),
-(3, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556828459, 15),
-(4, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556830923, 1918),
-(5, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556831587, 50),
-(6, 7, 'Alpaïde', 'THIROUIN', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 1556852113, 40);
+(8, 1, 'Alpaïde', 'THIROUIN', '50 avenue de la bourdonnais 75007 Paris', '+33651222517', 1556898891, 44);
 
 -- --------------------------------------------------------
 
@@ -117,14 +130,33 @@ INSERT INTO `stocks` (`id`, `article_id`, `taille`, `couleur`, `stock`) VALUES
 (1, 1, '38', 'Grises/Bleues', 30),
 (3, 3, 'M', 'Noir', 3),
 (4, 3, 'M', 'Bleu', 18),
-(5, 2, '128GB', '', 3),
-(6, 2, '256GB', '', 9),
-(8, 7, 'Standard', 'Noir', 0),
-(10, 8, 'A4', 'Normal', 100),
+(5, 2, '128GB', 'Couleur unique', 3),
+(6, 2, '256GB', 'Couleur unique', 9),
+(8, 7, 'Taille unique', 'Noir', 0),
+(10, 8, 'Taille unique', 'Couleur unique', 0),
 (11, 1, '42', 'Noires', 6),
-(12, 10, 'Non', 'Non', 11),
+(12, 10, 'Taille unique', 'Couleur unique', 9),
 (13, 11, 'Taillle unique', 'Couleur unique', 22),
-(14, 12, 'Taille unique', 'Couleur unique', 0);
+(15, 13, 'Taille unique', 'Couleur unique', 5),
+(16, 14, 'Taille unique', 'Couleur unique', 2),
+(17, 15, 'Taille unique', 'Couleur unique', 100),
+(18, 16, 'Taille unique', 'Couleur unique', 29),
+(19, 17, 'Taille unique', 'Cuivre', 28),
+(20, 18, '39', 'Blanche', 2),
+(22, 18, '36', 'Blanche', 1),
+(23, 20, '19', 'Blanche', 3),
+(24, 21, '10', 'Kaki', 2),
+(25, 22, 'Taille unique', 'Noir', 24),
+(26, 23, 'Taille unique', 'Multicolore', 7),
+(27, 24, 'Taille unique', 'Couleur unique', 9),
+(28, 25, 'Taille unique', 'Rouge ', 14),
+(29, 26, 'Taille unique', 'Couleur unique', 48),
+(30, 27, 'Taille unique', 'Couleur unique', 23),
+(31, 28, 'Taille unique', 'Couleur unique', 5),
+(32, 29, 'Taille unique', 'Couleur unique', 101),
+(33, 30, 'Taille unique', 'Couleur unique', 35),
+(34, 31, 'Taille unique', 'Jaune', 32),
+(35, 32, 'Taille unique', 'Couleur unique', 7);
 
 -- --------------------------------------------------------
 
@@ -153,8 +185,14 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`ID`, `nom`, `prenom`, `mail`, `mdp`, `adresse`, `telephone`, `type`, `numcarte`, `nomcarte`, `expiration`, `cvv`, `admin`) VALUES
-(1, 'Sorcelle', 'Leonie', 'leonie.sorcelle@edu.ece.fr', 'bravo', 'rue du jardin', '0601120033', 'deux', '9887762', 'sorcelle', '2020-09-01', '98', 1),
-(7, 'Thirouin', 'Alpaïde', 'thirouinalpaide@gmail.com', 'doudou', '50 Avenue de la Bourdonnais\r\n75007 PARIS', '0651222517', 'deux', '1234567890098765', 'Alpa', '2020-02', '123', 1);
+(1, 'Thirouin', 'Alpaïde', 'alpaide.thirouin@edu.ece.fr', 'alp', '50 avenue de la bourdonnais 75007 Paris', '+33651222517', 'deux', '1234123412341234', 'Alpaïde Thirouin', '2019-11', '123', 1),
+(2, 'Sorcelle', 'Leonie', 'leonie.sorcelle@edu.ece.fr', 'leo', '7 rue du commandant guilbauld 75016 Paris', '+33601172202', 'deux', '1234567812345678', 'Leonie Sorcelle', '2019-09', '456', 1),
+(3, 'Sabot', 'Alice', 'alice.sabot@edu.ece.fr', 'ali', '5 rue rébeval 75019 Paris', '+33699656852', 'deux', '5678567856785678', 'Alice Sabot', '2019-04', '789', 1),
+(11, 'Rohart', 'Margaux', 'margaux.rohart@edu.ece.fr', 'mar', '14 rue du 16 octobre 1914 59890 Quesnoy-sur-Deûle', '+33615437318', 'vendeur', '1212121212121212', 'Margaux Rohart', '2019-08', '123', 0),
+(12, 'Le Dain', 'Hadrien', 'hadrien.ledain@edu.ece.fr', 'had', '10 rue lecourbe 75015 Paris', '+33769157402', 'vendeur', '2323232323232323', 'Hadrien Le Dain', '2019-08', '123', 0),
+(13, 'Lurati', 'Clément', 'clement.lurati@edu.ece.fr', 'cle', '5 rue edgar faure 75015 Paris', '+33680815308', 'acheteur', '3434343434343434', 'Clément Lurati', '2019-10', '123', 0),
+(14, 'Dreyfus', 'Eva', 'eva.dreyfus@edu.ece.fr', 'eva', '30 rue de la rochefoucauld 92100 Boulogne ', '+33623748939', 'acheteur', '4545454545454545', 'Eva Dreyfus ', '2019-12', '123', 0),
+(15, 'Cluzeau', 'Valentin', 'valentin.cluzeau@edu.ece.fr', 'val', '132 rue damrémont 75018 Paris ', '+33650246029', 'deux', '5656565656565656', 'Valentin Cluzeau', '2019-12', '123', 0);
 
 -- --------------------------------------------------------
 
@@ -163,6 +201,7 @@ INSERT INTO `utilisateurs` (`ID`, `nom`, `prenom`, `mail`, `mdp`, `adresse`, `te
 --
 
 CREATE TABLE `ventes` (
+  `id` int(11) NOT NULL,
   `article_id` int(11) NOT NULL,
   `stock_id` int(11) NOT NULL,
   `commande_id` int(11) NOT NULL,
@@ -175,15 +214,9 @@ CREATE TABLE `ventes` (
 -- Dumping data for table `ventes`
 --
 
-INSERT INTO `ventes` (`article_id`, `stock_id`, `commande_id`, `utilisateur_id`, `quantite`, `prix`) VALUES
-(7, 8, 1, 7, 1, 347),
-(2, 5, 1, 7, 1, 959),
-(3, 4, 2, 7, 2, 50),
-(1, 1, 2, 7, 1, 110),
-(8, 10, 3, 7, 1, 15),
-(2, 5, 4, 7, 2, 1918),
-(3, 3, 5, 7, 2, 50),
-(12, 14, 6, 7, 4, 40);
+INSERT INTO `ventes` (`id`, `article_id`, `stock_id`, `commande_id`, `utilisateur_id`, `quantite`, `prix`) VALUES
+(10, 16, 18, 8, 1, 1, 30),
+(11, 30, 33, 8, 1, 1, 14);
 
 --
 -- Indexes for dumped tables
@@ -193,8 +226,7 @@ INSERT INTO `ventes` (`article_id`, `stock_id`, `commande_id`, `utilisateur_id`,
 -- Indexes for table `articles`
 --
 ALTER TABLE `articles`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `categorie` (`categorie`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `categories`
@@ -206,15 +238,13 @@ ALTER TABLE `categories`
 -- Indexes for table `commandes`
 --
 ALTER TABLE `commandes`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `utilisateur` (`utilisateur_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `stocks`
 --
 ALTER TABLE `stocks`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `article` (`article_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `utilisateurs`
@@ -226,10 +256,7 @@ ALTER TABLE `utilisateurs`
 -- Indexes for table `ventes`
 --
 ALTER TABLE `ventes`
-  ADD KEY `article_commande` (`article_id`),
-  ADD KEY `stock_commande` (`stock_id`),
-  ADD KEY `commande` (`commande_id`),
-  ADD KEY `utilisateur_commande` (`utilisateur_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -239,7 +266,7 @@ ALTER TABLE `ventes`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -251,47 +278,22 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `commandes`
 --
 ALTER TABLE `commandes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `stocks`
 --
 ALTER TABLE `stocks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- Constraints for dumped tables
---
-
---
--- Constraints for table `articles`
---
-ALTER TABLE `articles`
-  ADD CONSTRAINT `categorie` FOREIGN KEY (`categorie`) REFERENCES `categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `commandes`
---
-ALTER TABLE `commandes`
-  ADD CONSTRAINT `utilisateur` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `stocks`
---
-ALTER TABLE `stocks`
-  ADD CONSTRAINT `article` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `ventes`
+-- AUTO_INCREMENT for table `ventes`
 --
 ALTER TABLE `ventes`
-  ADD CONSTRAINT `article_commande` FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `commande` FOREIGN KEY (`commande_id`) REFERENCES `commandes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `stock_commande` FOREIGN KEY (`stock_id`) REFERENCES `stocks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `utilisateur_commande` FOREIGN KEY (`utilisateur_id`) REFERENCES `utilisateurs` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;

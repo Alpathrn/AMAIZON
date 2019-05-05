@@ -34,12 +34,19 @@ include('head.php');
                         <option value="vendeur">Vendeur</option>
                         <option value="deux">Les deux</option>
                     </select>
+                    <select class="form-control" name="typecarte" required>
+                        <option disabled selected>Type de carte</option>
+                        <option value="Visa">Visa</option>
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="American Express">American Express</option>
+                        <option value="Paypal">Paypal</option>
+                    </select>
                     <input class="form-control" type="text" name="nomcarte" placeholder="Nom sur la carte" required />
                     <input class="form-control" type="text" name="numcarte" placeholder="Numéro de carte bancaire" pattern=".{16}" required title="16 caractères requis." />
                     <input class="form-control" type="month" name="expiration" required />
                     <input class="form-control" type="text" name="cvv" placeholder="CVV" pattern=".{3}" required title="3 caractères requis." />
                     <input type="hidden" name="redirection" value="<?php echo $_GET['redirection'] ?>" />
-                    <input class="btn" type="submit" value="Me connecter" /><br />
+                    <input class="btn" type="submit" value="M'inscrire" /><br />
                     <span>Vous avez déjà un compte? <a href="connexion.php?redirection=<?php echo $_GET['redirection'] ?>">Connectez vous</a></span>
                 </form>
             </div>
