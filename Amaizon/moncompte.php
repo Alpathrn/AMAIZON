@@ -106,7 +106,12 @@ include('head.php');
                         <div class="col prix"><?php echo $commande['prix_total'] ?> €</div>
                     </div>
                 <?php }
-            ?>
+            if (!$total) { ?>
+                    <div class="center-container" style="height:150px;">
+                        <div class="center">Pas encore de commandes</div>
+                    </div>
+                <?php } ?>
+
                 <div style="text-align: right; margin-top: 20px;">
                     <span id="prix-total"><?php echo $total ?> € </span>
                 </div>

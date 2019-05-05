@@ -71,7 +71,13 @@ include('head.php');
                             }
                             ?>
                             <div style="width:50px;"><a href="<?php echo $lien_moins ?>">-</a></div>
-                            <div style="width:50px;"><?php echo $stock['stock'] ?></div>
+                            <div style="width:50px;">
+                                <form action="forms/ajoutstockquantite.php" method="post">
+                                    <input type="number" style="width:50px;" value="<?php echo $stock['stock'] ?>" name="stock" required />
+                                    <input type="hidden" name="id" value="<?php echo $stock['id'] ?>" />
+                                    <input type="submit" style="display:none;" />
+                                </form>
+                            </div>
                             <div style="width:50px;"><a href="actions/changerstock.php?type=augmenter&id=<?php echo $stock['id'] ?>">+</a></div>
                         </div>
 
@@ -79,7 +85,7 @@ include('head.php');
                             <?php if (!$promotion_affiche) {
                                 $promotion_affiche = true; ?>
                                 <form action="forms/ajoutpromotion.php" method="post">
-                                    <?php echo $article['prix'] ?>€ -
+                                    <?php echo $article['prix'] ?> € -
                                     <input type="number" value="<?php echo $article['promotion'] ?>" min="0" max="100" name="promotion" required /> %
                                     <input type="hidden" name="id" value="<?php echo $article['id'] ?>" />
                                     <input type="submit" style="display:none;" />

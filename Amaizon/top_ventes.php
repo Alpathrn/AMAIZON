@@ -50,39 +50,75 @@ include('head.php');
         ?>
         <h2>Livres</h2>
         <div class="row">
-            <?php foreach ($top_articles_livres as $id => $ventes) {
+            <?php
+            $articles = 0;
+            foreach ($top_articles_livres as $id => $ventes) {
                 $reqarticle = $bdd->query('SELECT * FROM articles WHERE id = ' . $id);
                 $tmp = $reqarticle->fetch();
                 $custom = 'Total vendus : ' . $ventes;
                 include('article_bloc.php');
-            } ?>
+                $articles += 1;
+            }
+            if (!$articles) { ?>
+                <div class="center-container" style="height:300px;">
+                    <div class="center">Pas de ventes dans cette catégorie</div>
+                </div>
+            <?php }
+        ?>
         </div>
         <h2>Musique</h2>
         <div class="row">
-            <?php foreach ($top_articles_musique as $id => $ventes) {
+            <?php
+            $articles = 0;
+            foreach ($top_articles_musique as $id => $ventes) {
                 $reqarticle = $bdd->query('SELECT * FROM articles WHERE id = ' . $id);
                 $tmp = $reqarticle->fetch();
                 $custom = 'Total vendus : ' . $ventes;
                 include('article_bloc.php');
-            } ?>
+                $articles += 1;
+            }
+            if (!$articles) { ?>
+                <div class="center-container" style="height:300px;">
+                    <div class="center">Pas de ventes dans cette catégorie</div>
+                </div>
+            <?php }
+        ?>
         </div>
         <h2>Vêtements</h2>
         <div class="row">
-            <?php foreach ($top_articles_vetements as $id => $ventes) {
+            <?php
+            $articles = 0;
+            foreach ($top_articles_vetements as $id => $ventes) {
                 $reqarticle = $bdd->query('SELECT * FROM articles WHERE id = ' . $id);
                 $tmp = $reqarticle->fetch();
                 $custom = 'Total vendus : ' . $ventes;
                 include('article_bloc.php');
-            } ?>
+                $articles += 1;
+            }
+            if (!$articles) { ?>
+                <div class="center-container" style="height:300px;">
+                    <div class="center">Pas de ventes dans cette catégorie</div>
+                </div>
+            <?php }
+        ?>
         </div>
         <h2>Sports & Loisirs</h2>
         <div class="row">
-            <?php foreach ($top_articles_sportsloisirs as $id => $ventes) {
+            <?php
+            $articles = 0;
+            foreach ($top_articles_sportsloisirs as $id => $ventes) {
                 $reqarticle = $bdd->query('SELECT * FROM articles WHERE id = ' . $id);
                 $tmp = $reqarticle->fetch();
                 $custom = 'Total vendus : ' . $ventes;
                 include('article_bloc.php');
-            } ?>
+                $articles += 1;
+            }
+            if (!$articles) { ?>
+                <div class="center-container" style="height:300px;">
+                    <div class="center">Pas de ventes dans cette catégorie</div>
+                </div>
+            <?php }
+        ?>
         </div>
     </div>
 </body>
